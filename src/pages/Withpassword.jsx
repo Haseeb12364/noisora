@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaGoogle, FaFacebookF, FaApple } from "react-icons/fa";
+// import { FaGoogle, FaFacebookF, FaApple } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 export default function Login() {
@@ -16,7 +16,7 @@ export default function Login() {
             return;
         }
         const res = await login({ email, password, Rememberme })
-
+ 
         console.log(res);
 
         if (res.success === false) {
@@ -57,14 +57,14 @@ export default function Login() {
           <span> Remberme</span>
          </label> */}
                     <label className="flex items-center space-x-1">
-                        <input
-                            type="checkbox"
+                        {/* <input
+                            type=""
                             checked={Rememberme}
                             onChange={() => setRememberme(!Rememberme)}
                             className="form-checkbox accent-cyan-500"
-                        />
-                        <span>Remember Me</span>
-                    </label>
+                        /> */}
+                        {/* <span>Remember Me</span> */}
+                    </label>    
                     {/* <button className="w-full flex items-center justify-center space-x-2 bg-[#1f1f1f] text-white py-2 rounded-lg hover:bg-[#2a2a2a]">
             <FaApple className="text-white" />
             <span>Continue with Apple</span>
@@ -81,6 +81,11 @@ export default function Login() {
                     <hr className="border-white flex-1" />
                     <span className="text-sm text-white">or Continue with</span>
                     <hr className="border-white flex-1" />
+                </div>
+                <div className="flex">
+                    <img className="size-8 cursor-pointer" src="google.png" alt="" />
+                    <img  className="size-8 ml-4 cursor-pointer"  src="fb.png" alt="" />
+                     <img className="size-8 ml-4 cursor-pointer" src="apple.png" alt="" />
                 </div>
                 <p className="text-sm text-gray-400">
                     Don’t have an account?{" "}

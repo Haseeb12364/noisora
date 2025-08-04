@@ -4,6 +4,7 @@ import Herosection from './components/herosection'
 import Songs from './components/listennow'
 import Footer from './components/footer'
 import Login from './pages/login';
+import Explore from './pages/Explorenow';
 import Withpassword from './pages/Withpassword'; 
 import Admindashboard from './pages/AdminDashboard'; 
 
@@ -31,7 +32,7 @@ function App() {
       <Routes>
         <Route path="/admin" element={<Admindashboard />} />
           <Route path="/user" element={<Userdashboard />} />
-
+               <Route path="/Explorenow" element={<Explore />}/>
 
         <Route path="/" element={
           <>
