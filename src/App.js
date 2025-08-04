@@ -5,9 +5,9 @@ import Songs from './components/listennow'
 import Footer from './components/footer'
 import Login from './pages/login';
 import Explore from './pages/Explorenow';
-import Withpassword from './pages/Withpassword'; 
-import Admindashboard from './pages/AdminDashboard'; 
-
+import Withpassword from './pages/Withpassword';
+import Admindashboard from './pages/AdminDashboard';
+import Kpop from "./pages/Kpop"
 
 import { useEffect } from 'react'
 import { AuthProvider } from './context/AuthContext';
@@ -23,7 +23,7 @@ function App() {
 
   return <>
     <div>
-      
+
       {/* <Navbar /> */}
       {!shouldHide && <Navbar />}
 
@@ -31,9 +31,9 @@ function App() {
 
       <Routes>
         <Route path="/admin" element={<Admindashboard />} />
-          <Route path="/user" element={<Userdashboard />} />
-               <Route path="/Explorenow" element={<Explore />}/>
-
+        <Route path="/user" element={<Userdashboard />} />
+        <Route path="/Explorenow" element={<Explore />} />
+        <Route path="/kpop" element={<Kpop />} />
         <Route path="/" element={
           <>
             <Herosection />
@@ -48,7 +48,7 @@ function App() {
       {/* <LoginForm/> */}
       {/* <Memo /> */}
       {/* <PasswordGenerator /> */}
-         {!shouldHide && <Footer />}
+      {!shouldHide && <Footer />}
       {/* <Footer /> */}
     </div>
     {/* <div className='bg-red-800 text-white h-96 w-full flex items-center justify-center my-20'>HEllo</div> */}

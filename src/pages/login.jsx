@@ -1,4 +1,4 @@
-// import { FaGoogle, FaFacebookF, FaApple } from "react-icons/fa"; 
+import { FaGoogle, FaFacebookF, FaApple } from "react-icons/fa"; 
 import { Link } from "react-router-dom"
 import { useAuth } from "../context/AuthContext";
 export default function Login() {
@@ -6,8 +6,7 @@ export default function Login() {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center text-white">
       <div className="w-[300px] flex flex-col items-center space-y-5  ">
-
-
+        
         <img
           src="/musium logo.png"
 
@@ -20,17 +19,17 @@ export default function Login() {
 
         <div className="w-full space-y-2">
           <button className="w-full flex items-center justify-center space-x-2 bg-[#1f1f1f] text-white py-2 rounded-lg   hover:bg-[#2a2a2a]">
-            {/* <FaGoogle className="text-red-400" /> */}
+            <FaGoogle className="text-red-400" />
             <span>Continue with Google</span>
           </button>
 
           <button className="w-full flex items-center justify-center space-x-2 bg-[#1f1f1f] text-white py-2 rounded-lg hover:bg-[#2a2a2a]">
-            {/* <FaFacebookF className="text-blue-500" /> */}
+            <FaFacebookF className="text-blue-500" />
             <span>Continue with Facebook</span>
           </button>
 
           <button className="w-full flex items-center justify-center space-x-2 bg-[#1f1f1f] text-white py-2 rounded-lg hover:bg-[#2a2a2a]">
-            {/* <FaApple className="text-white" /> */}
+            <FaApple className="text-white" />
             <span>Continue with Apple</span>
           </button>
         </div>
