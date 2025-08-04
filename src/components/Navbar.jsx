@@ -11,7 +11,7 @@ function Navbar() {
   const isUser = user?.role === "user";
 
   return (
-    <header className="w-full px-4 py-4 bg-black text-white relative z-50">
+    <header className="w-full  px-4 py-4 bg-black text-white relative z-50">
       <div className="flex items-center justify-between">
         {/* Logo */}
         <h1 className="text-2xl font-bold logo">
@@ -33,12 +33,12 @@ function Navbar() {
         {/* Login button - always visible */}
         <div className="flex items-center gap-4">
           {user?.email ? (
-            <button className="glow-btn1 text-sm" onClick={logout}>Logout</button>
+            <button className="text-sm glow-btn2"  onClick={logout}>Logout</button>
           ) : (
-            <button className="glow-btn1 text-sm" onClick={() => navigate("/login")}>Login</button>
+            <button className="text-sm glow-btn" onClick={() => navigate("/login")}>Login</button>
           )}
 
-          {/* Mobile Hamburger */}
+        
           <button
             className="flex flex-col space-y-1 lg:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
