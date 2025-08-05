@@ -1,15 +1,16 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Herosection from './components/herosection';
-import Footer from './components/footer';
+import Navbar from './components/Navbar'
+import Herosection from './components/herosection'
+import Footer from './components/footer'
 import Login from './pages/login';
 import Explore from './pages/Explorenow';
 import Withpassword from './pages/Withpassword';
 import Admindashboard from './pages/AdminDashboard';
-import Pakistani from './pages/pakistani';
+import Pakistani from "./pages/pakistani";  
+
+import { useEffect } from 'react'
+import { AuthProvider } from './context/AuthContext';
 import Userdashboard from './pages/Userdashboard';
-
-
 
 function App() {
   const location = useLocation();
@@ -19,28 +20,27 @@ function App() {
   return (
     <>
       <div>
-        {/* Show Navbar unless on admin or login page */}
         {!shouldHide && <Navbar />}
 
         <Routes>
           <Route path="/admin" element={<Admindashboard />} />
           <Route path="/user" element={<Userdashboard />} />
           <Route path="/Explorenow" element={<Explore />} />
-          <Route path="/pakistani" element={<Pakistani />} />
-
-          {/* New artist routes */}
-   >
-
-          <Route path="/" element={<Herosection />} />
+          <Route path="/pakistani" element={<Pakistani />} /> 
+          
+          <Route path="/" element={
+            <>
+              <Herosection />
+            </>
+          } />
           <Route path="/login" element={<Login />} />
           <Route path="/withpassword" element={<Withpassword />} />
         </Routes>
 
-        {/* Show footer unless on admin or login page */}
         {!shouldHide && <Footer />}
       </div>
     </>
   );
 }
 
-export default App;
+export default App;    
