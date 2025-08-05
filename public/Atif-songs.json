@@ -1,74 +1,64 @@
 {
-  "results": [
-    {
-      "trackId": 1,
-      "trackName": "Hoor (From 'Hindi Medium')",
-      "artistName": "Atif Aslam",
-      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/7d/77/e2/7d77e266-c8b7-caec-d7e0-f419b4371079/8903431777133_cover.jpg/100x100bb.jpg",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/a0/02/71/a0027194-b8be-0e83-b136-38a68d9a0639/mzaf_1531316596952177895.plus.aac.p.m4a"
-    },
-    {
-      "trackId": 2,
-      "trackName": "Dekhte Dekhte (From 'Batti Gul Meter Chalu')",
-      "artistName": "Atif Aslam",
-      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/70/89/6d/70896df2-2b92-1593-7e4f-9f933eec679e/cover.jpg/100x100bb.jpg",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/5b/2c/e1/5b2ce149-033a-6099-5d91-78750ac9f5dd/mzaf_3147251751269005786.plus.aac.p.m4a"
-    },
-    {
-      "trackId": 3,
-      "trackName": "Paniyon Sa (From 'Satyameva Jayate')",
-      "artistName": "Atif Aslam & Tulsi Kumar",
-      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/45/c8/08/45c80814-d87e-9c14-cd4d-7eb31b0ac9a4/cover.jpg/100x100bb.jpg",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/87/90/92/8790928d-dc77-e933-6daf-4d413465bc18/mzaf_17981810003010807399.plus.aac.p.m4a"
-    },
-    {
-      "trackId": 4,
-      "trackName": "Tera Hone Laga Hoon",
-      "artistName": "Atif Aslam & Shreya Ghoshal",
-      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/01/3e/89/013e89f7-fcdf-292c-3c40-30f07a6fd5d0/cover.jpg/100x100bb.jpg",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview114/v4/77/b1/fc/77b1fcbe-c380-6e4b-1ea1-7d9730e8aa37/mzaf_18084753018148133883.plus.aac.p.m4a"
-    },
-    {
-      "trackId": 5,
-      "trackName": "Jeene Laga Hoon",
-      "artistName": "Atif Aslam & Shreya Ghoshal",
-      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/22/63/4d/22634d94-c18e-776b-e871-83f9d8ff3711/cover.jpg/100x100bb.jpg",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/2c/b3/b3/2cb3b3c4-12bb-ec47-d53c-6fd08e301ad8/mzaf_5531406507591684097.plus.aac.p.m4a"
-    },
-    {
-      "trackId": 6,
-      "trackName": "Tera Ban Jaunga (From 'Kabir Singh')",
-      "artistName": "Akhil Sachdeva & Tulsi Kumar",
-      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/5b/23/6f/5b236fd3-96aa-0c7d-8f70-317a520f0b9f/cover.jpg/100x100bb.jpg",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d0/3b/b6/d03bb6c6-62ac-39f6-19f9-c9e453e9862d/mzaf_9323879492457515709.plus.aac.p.m4a"
-    },
-    {
-      "trackId": 7,
-      "trackName": "Jeena Jeena (From 'Badlapur')",
-      "artistName": "Atif Aslam",
-      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ce/aa/94/ceaa94e3-3be4-24b5-b509-7e925fc264e5/cover.jpg/100x100bb.jpg",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview123/v4/1c/6b/2b/1c6b2b29-6810-97f1-e9eb-70f248445bfd/mzaf_3917945401264953328.plus.aac.p.m4a"
-    },
-    {
-      "trackId": 8,
-      "trackName": "Pehli Dafa (feat. Ileana D'Cruz)",
-      "artistName": "Atif Aslam",
-      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/e3/79/9e/e3799e85-ff4a-fd7e-3c8a-4b648620d76a/cover.jpg/100x100bb.jpg",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview114/v4/f2/f4/b7/f2f4b7f8-3555-dc9e-b507-377eeff6b0ef/mzaf_14128950945519419998.plus.aac.p.m4a"
-    },
-    {
-      "trackId": 9,
-      "trackName": "Dil Diyan Gallan (From 'Tiger Zinda Hai')",
-      "artistName": "Atif Aslam",
-      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f3/f9/cc/f3f9cc1e-c308-4567-8051-daf196a9d640/cover.jpg/100x100bb.jpg",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview113/v4/19/8f/bc/198fbc90-0e50-77aa-b5b5-4c1877a0e4a9/mzaf_5215864384024048447.plus.aac.p.m4a"
-    },
-    {
-      "trackId": 10,
-      "trackName": "Rangdaari (From 'Daas Dev')",
-      "artistName": "Atif Aslam",
-      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/57/df/c6/57dfc6f6-fec6-6b60-9f7c-4a3a135e1f63/cover.jpg/100x100bb.jpg",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5e/7f/2e/5e7f2eb1-8ea7-b93b-6842-34b8e989bd9c/mzaf_18282230408811018762.plus.aac.p.m4a"
-    }
-  ]
+  "results": {
+    "Atif Aslam": [
+      { "trackId": 101, "trackName": "Tera Hone Laga Hoon", "artistName": "Atif Aslam", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
+      { "trackId": 102, "trackName": "Jeene Laga Hoon", "artistName": "Atif Aslam", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+      { "trackId": 103, "trackName": "Pehli Dafa", "artistName": "Atif Aslam", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+      { "trackId": 104, "trackName": "Dil Diyan Gallan", "artistName": "Atif Aslam", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
+      { "trackId": 105, "trackName": "Jeena Jeena", "artistName": "Atif Aslam", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" },
+      { "trackId": 106, "trackName": "O Saathi", "artistName": "Atif Aslam", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
+      { "trackId": 107, "trackName": "Main Rang Sharbaton Ka", "artistName": "Atif Aslam", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3" },
+      { "trackId": 108, "trackName": "Be Intehaan", "artistName": "Atif Aslam", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+      { "trackId": 109, "trackName": "Tajdar-e-Haram", "artistName": "Atif Aslam", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" },
+      { "trackId": 110, "trackName": "Hona Tha Pyar", "artistName": "Atif Aslam", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" }
+    ],
+    "Ali Zafar": [
+      { "trackId": 201, "trackName": "Jhoom", "artistName": "Ali Zafar", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3" },
+      { "trackId": 202, "trackName": "Channo", "artistName": "Ali Zafar", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3" },
+      { "trackId": 203, "trackName": "Sajna", "artistName": "Ali Zafar", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3" },
+      { "trackId": 204, "trackName": "Yaar Daddi", "artistName": "Ali Zafar", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3" },
+      { "trackId": 205, "trackName": "Rockstar", "artistName": "Ali Zafar", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3" },
+      { "trackId": 206, "trackName": "Julie", "artistName": "Ali Zafar", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3" },
+      { "trackId": 207, "trackName": "Dekha", "artistName": "Ali Zafar", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3" },
+      { "trackId": 208, "trackName": "Madhubala", "artistName": "Ali Zafar", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-18.mp3" },
+      { "trackId": 209, "trackName": "Rangeen", "artistName": "Ali Zafar", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-19.mp3" },
+      { "trackId": 210, "trackName": "Voh Dekhnay Mein", "artistName": "Ali Zafar", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-20.mp3" }
+    ],
+    "Momina Mustehsan": [
+      { "trackId": 301, "trackName": "Afreen Afreen", "artistName": "Momina Mustehsan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-21.mp3" },
+      { "trackId": 302, "trackName": "Tera Woh Pyar", "artistName": "Momina Mustehsan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-22.mp3" },
+      { "trackId": 303, "trackName": "Baari", "artistName": "Momina Mustehsan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-23.mp3" },
+      { "trackId": 304, "trackName": "Awari", "artistName": "Momina Mustehsan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-24.mp3" },
+      { "trackId": 305, "trackName": "Tu Hi Tu", "artistName": "Momina Mustehsan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-25.mp3" },
+      { "trackId": 306, "trackName": "Kuch Na Kaho", "artistName": "Momina Mustehsan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-26.mp3" },
+      { "trackId": 307, "trackName": "Ghoom Taana", "artistName": "Momina Mustehsan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-27.mp3" },
+      { "trackId": 308, "trackName": "Tera Naam", "artistName": "Momina Mustehsan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-28.mp3" },
+      { "trackId": 309, "trackName": "Aaya Na Tu", "artistName": "Momina Mustehsan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-29.mp3" },
+      { "trackId": 310, "trackName": "Sajna Door", "artistName": "Momina Mustehsan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-30.mp3" }
+    ],
+    "Rahat Fateh Ali Khan": [
+      { "trackId": 401, "trackName": "Mann Ki Lagan", "artistName": "Rahat Fateh Ali Khan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-31.mp3" },
+      { "trackId": 402, "trackName": "O Re Piya", "artistName": "Rahat Fateh Ali Khan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-32.mp3" },
+      { "trackId": 403, "trackName": "Teri Ore", "artistName": "Rahat Fateh Ali Khan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-33.mp3" },
+      { "trackId": 404, "trackName": "Tere Mast Mast Do Nain", "artistName": "Rahat Fateh Ali Khan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-34.mp3" },
+      { "trackId": 405, "trackName": "Main Jahaan Rahoon", "artistName": "Rahat Fateh Ali Khan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-35.mp3" },
+      { "trackId": 406, "trackName": "Sajda", "artistName": "Rahat Fateh Ali Khan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-36.mp3" },
+      { "trackId": 407, "trackName": "Zaroori Tha", "artistName": "Rahat Fateh Ali Khan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-37.mp3" },
+      { "trackId": 408, "trackName": "Dil To Bachcha Hai", "artistName": "Rahat Fateh Ali Khan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-38.mp3" },
+      { "trackId": 409, "trackName": "Jag Ghoomeya", "artistName": "Rahat Fateh Ali Khan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-39.mp3" },
+      { "trackId": 410, "trackName": "Bol Na Halke Halke", "artistName": "Rahat Fateh Ali Khan", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-40.mp3" }
+    ],
+    "Abida Parveen": [
+      { "trackId": 501, "trackName": "Yaar Ko Humne", "artistName": "Abida Parveen", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-41.mp3" },
+      { "trackId": 502, "trackName": "Tera Ishq", "artistName": "Abida Parveen", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-42.mp3" },
+      { "trackId": 503, "trackName": "Mahi Yaar Di Gharoli", "artistName": "Abida Parveen", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-43.mp3" },
+      { "trackId": 504, "trackName": "Dama Dam Mast Qalandar", "artistName": "Abida Parveen", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-44.mp3" },
+      { "trackId": 505, "trackName": "Tere Ishq Nachaya", "artistName": "Abida Parveen", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-45.mp3" },
+      { "trackId": 506, "trackName": "Chaap Tilak", "artistName": "Abida Parveen", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-46.mp3" },
+      { "trackId": 507, "trackName": "Lal Meri Pat", "artistName": "Abida Parveen", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-47.mp3" },
+      { "trackId": 508, "trackName": "Man Kunto Maula", "artistName": "Abida Parveen", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-48.mp3" },
+      { "trackId": 509, "trackName": "Kafi", "artistName": "Abida Parveen", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-49.mp3" },
+      { "trackId": 510, "trackName": "Nigah-e-Karam", "artistName": "Abida Parveen", "artworkUrl100": "https://via.placeholder.com/100", "previewUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-50.mp3" }
+    ]
+  }
 }

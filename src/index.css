@@ -12,8 +12,9 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: radial-gradient(circle at top,   #0f0f2c, #000 ,#050220);
-  color: #ffffffcc;
+  /* background: radial-gradient(circle at top,   #0f0f2c, #000 ,#050314); */
+   background-color: #000;
+  /* color: #ffffffcc; */
   overflow-x: hidden;
   display: grid;
 }

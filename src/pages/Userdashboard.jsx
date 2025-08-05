@@ -1,12 +1,18 @@
+import { TfiAngleLeft } from "react-icons/tfi";
 import { useState } from "react";
 import { FiMenu, FiSearch, FiX } from "react-icons/fi";
-
+import { Link } from "react-router-dom"
 export default function Userdashboard() {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [showMenu, setShowMenu] = useState(false);
 
   return (
+    <>
+      <Link to={"/"}>
+      <div className="">      <TfiAngleLeft className="text-2xl cursor-pointer  text-white font-bold  m-3" /></div>
+
+      </Link>
     <div className="min-h-screen w-full bg-black text-white p-4">
       {/* Top Bar */}
       <div className="flex items-center justify-between px-4 mb-4">
@@ -92,5 +98,6 @@ export default function Userdashboard() {
         </div>
       </div>
     </div>
+    </>
   );
 }

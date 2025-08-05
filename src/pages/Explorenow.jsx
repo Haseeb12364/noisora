@@ -1,78 +1,106 @@
-import { BiColor } from "react-icons/bi"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
+const topGenres = [
+    { name: "pakistani", img: "pakistani.jpg" },
+    { name: "indian", img: "indian.avif" },
+    { name: "english", img: "english.webp" },
+    { name: "Pop", img: "pop1.webp" },
+    { name: "Slowed Reverbs", img: "slow.jpg" },
+];
 
+const browseAll = [
+    { name: "Made for You", color: "#1E82AC", img: "" },
+    { name: "Released", color: "#76259C", img: "" },
+    { name: "Music Charts", color: "#25319C", img: "" },
+    { name: "Podcasts", color: "#9C2542", img: "" },
+    { name: "Bollywood", color: "#9C7425", img: "" },
+    { name: "Pop Fusion", color: "#479775", img: "" },
+];
 
-    const topGenres=[
-        {name:"kpop",color:"#75C922",img:"kpop.png" },
-        {name:"Indie",color:"#CF25A0",img:"Indie.png" },
-         {name:"R&B",color:"#4A558F",img:"R&B.png" },
-          {name:"Pop",color:"#BD6220",img:"Pop.png" },
-           {name:"Slowed rewerbs",color:"#ffff" },
-            // {name:"kpop",color:"#75C922" }
-    ]
-    const browseAll=[
-        {name:"Made for you",color:"#1E82AC",img:"you.png" },
-        {name:"Released",color:"#76259C",img:"released.png" },
-        {name:"Music Charts",color:"#25319C",img:"music.png" },
-        {name:"Podcasts",color:"#9C2542",img:"podcast.png" },
-        {name:"Bollywood",color:"#9C7425",img:"bollywood.png" },
-        {name:"pop fusion",color:"#479775",img:"fusion.png" },
-    ];
 export default function Explore() {
-
-    return (<div className="min-h-screen bg-gradient-to-b from-black to-gray-900  text-white p-4 ">
-        <div className="w-[300px] flex items-center justify-between mb-6">
-            <div className="flex items-center ">
-                <img
-                    src="/musium logo.png"
-
-                    className="w- h-16 object-contain"
-                />
-
-                <h1 className="text-3xl font-bold text-cyan-400">Search</h1>
+    return (
+        <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white px-4 py-6">
+            {/* Header */}
+            <div className="flex items-center justify-between flex-wrap mb-6">
+                <div className="flex items-center gap-4">
+                    <img
+                        src="/musium logo.png"
+                        className="w-12 h-12 object-contain"
+                        alt="Musium Logo"
+                    />
+                    <h1 className="text-2xl md:text-3xl font-bold text-cyan-400">
+                        Search
+                    </h1>
+                </div>
             </div>
 
-        </div>
-        <input className="w-full rounded-xl mr-4 text-lg glow-btn" type="text" placeholder="Songs/Artists/Products&more..." />
+            {/* Search Input */}
+            <input
+                className="glow-btn w-full rounded-xl text-lg px-4 py-2 bg-gray-800 text-white placeholder-gray-400 mb-6 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                type="text"
+                placeholder="Songs / Artists / Products & more..."
+            />
 
-
-        {/* top geners */}
-        <div className="mt-4">
-            <h2 className="ml-8 font-semibold text-3xl p-3">Your Top Geners</h2>
-            <div className="grid grid-cols-3 gap-3 mb-6  mt-5 p-6" >
-                {topGenres.map((genre,index)=>(
-                    <div key={index} className="relative h-36  rounded-xl overflow-hidden" style={{ backgroundColor: genre.color }}>
-                        <h4 className="text-white font-bold text-xl p-4" >{genre.name}</h4>
-                          <img src={genre.img} className="ml-44 h-64     "  alt={genre.name} />
-                            
+            {/* Top Genres */}
+            <div>
+                <h2 className="text-xl sm:text-2xl font-semibold px-2 mb-4 ">
+                    Your Top Genres
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    {topGenres.map((genre, index) => {
+                        const genreCard = (
+                            <div
+                                className="h-36 rounded-xl flex justify-between items-center px-4 hover:scale-105 transition-transform"
+                                style={{
+                                    backgroundImage: `url(${genre.img})`,
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                }}
+                            >
+                                <h4 className="text-white text-2xl font-bold">
+                                    {genre.name}
+                                </h4>
                             </div>
-                ))}
-            
+                        );
+
+                        return genre.name.trim().toLowerCase() === "pakistani" ? (
+                            <Link to="/songs" key={index}>
+                                {genreCard}
+                            </Link>
+                        ) : (
+                            <div key={index}>{genreCard}</div>
+                        );
+                    })}
                 </div>
+            </div>
+
+            {/* Browse All */}
+            <div className="mt-10">
+                <h2 className="text-xl sm:text-2xl font-semibold px-2 mb-4">
+                    Browse All
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    {browseAll.map((item, index) => (
+                        <div
+                            key={index}
+                            className="h-52 rounded-xl flex flex-col justify-between p-4"
+                            style={{ backgroundColor: item.color }}
+                        >
+                            <h4 className="text-white font-bold text-xl p-5">
+                                {item.name}
+                            </h4>
+                            {item.img && (
+                                <img
+                                    src={item.img}
+                                    alt={item.name}
+                                    className="h-34 w-44 self-end object-contain"
+                                />
+                            )}
+                        </div>
+                    ))}
                 </div>
-           
-        {/* /////////////////////////// */}
-        {/* BrowseAll */}
-        <div className="mt-4">
-            <h2 className="ml-8 font-semibold">Browse All</h2>
-            <div className="grid grid-cols-3 gap-3 mb-6  mt-5 p-6" >
-                {/* <div className=" mt-4 bg-green-500 ml-6 "> <h4>Made For</h4></div> */}
-                {browseAll.map((item,index)=>(
-                    <div key={index} className="mt-4 ml-6 h-52 rounded-xl overflow-hidden" style={{ backgroundColor: item.color }}>
-                         <h4 className="text-white font-bold text-3xl p-8" >{item.name}</h4>
-                             <img src={item.img} className="ml-44 h-48"  alt={item.name} />
-                          </div>
-                ))}
-               
-            
-        
-                </div>
-              
-                </div>
-                </div>
+            </div>
+        </div>
     );
 }
-
-     
-
+  
