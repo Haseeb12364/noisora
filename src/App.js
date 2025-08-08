@@ -6,12 +6,13 @@ import Login from './pages/login';
 import Explore from './pages/Explorenow';
 import Withpassword from './pages/Withpassword';
 import Admindashboard from './pages/AdminDashboard';
-import Pakistani from "./pages/pakistani";  
+// import Pakistani from "./pages/pakistani";  
 
 import { useEffect } from 'react'
 import { AuthProvider } from './context/AuthContext';
 import Userdashboard from './pages/Userdashboard';
-
+import Artists from './pages/Artists';
+import Trendingsongs from './pages/Trendingsongs';
 function App() {
   const location = useLocation();
   const hideNavbarAndFooter = ['/admin', '/login'];
@@ -26,8 +27,9 @@ function App() {
           <Route path="/admin" element={<Admindashboard />} />
           <Route path="/user" element={<Userdashboard />} />
           <Route path="/Explorenow" element={<Explore />} />
-          <Route path="/pakistani" element={<Pakistani />} /> 
-          
+          {/* <Route path="/pakistani" element={<Pakistani />} /> */}
+             <Route path="/artists" element={<Artists />} /> 
+              <Route path="/Trendingsongs" element={<Trendingsongs />} /> 
           <Route path="/" element={
             <>
               <Herosection />
