@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-
 const TrendingSongs = [
   {
     id: 1,
@@ -8,46 +7,105 @@ const TrendingSongs = [
     cover: "/obsessed.jfif",
     language: "Punjabi",
     audio: "/audio/obsessed.mp3",
+    
   },
   {
     id: 2,
-    title: "Pal Pal",
-    artist: "Affan Khan",
+    title: "pal pal",
+    artist: "Affan khan",
     cover: "/pal.jpg",
-    language: "Pakistani",
+    language: "pakistani",
     audio: "/audio/pal pal.mp3",
   },
   {
     id: 3,
-    title: "Chl Koi Na",
+    title: "Chl koi na",
     artist: "Sarmad Qadeer",
     cover: "/Chlkoina.jpg",
     language: "Pakistani",
     audio: "/audio/chlkoina.mp3",
+
   },
   {
     id: 4,
-    title: "Paigham",
+    title: "paigham",
     artist: "Amrinder Gill",
     cover: "/paigham.jpg",
     language: "Punjabi",
     audio: "/audio/paigham.mp3",
+
   },
   {
     id: 5,
     title: "Baat",
     artist: "Asim Azhar, Qirat Haider",
     cover: "/baat..jpg",
-    language: "Pakistani",
+    language: "pakistani",
     audio: "/audio/baat.mp3",
+ 
   },
   {
     id: 6,
     title: "White Brown Black",
-    artist: "Karan Aujla",
+    artist: "karan aujla",
     cover: "/wbb.jpg",
     language: "Punjabi",
     audio: "/audio/wbb.mp3",
+
+  },
+   {
+    id: 7,
+    title: "Haseen",
+    artist: "Manish S Sharmaa",
+    cover: "/haseen.jpg",
+    language: "Punjabi",
+    audio: "/audio/haseen.mp3",
+
+  },
+  {
+    id: 8,
+    title: "Supreme",
+    artist: "Shubh",
+    cover: "/supreme.jpg",
+    language: "punjabi",
+    audio: "/audio/supreme.mp3",
+ 
+  },
+  {
+    id: 9,
+    title: "Young GOAT",
+    artist: "	Cheema Y × Gur Sidhu",
+    cover: "/goat.jfif",
+    language: "Punjabi",
+    audio: "/audio/young goat.mp3",
+
+  },
+  {
+    id: 10,
+    title: "Shayad",
+    artist: "Arijit Singh",
+    cover: "/shayad.jpg",
+    language: "hindi",
+    audio: "/audio/shayad.mp3",
+ 
+  },
+  {
+    id: 11,
+    title: "Dil Pagal",
+    artist: "bilal saeed",
+    cover: "/pagal.jpg",
+    language: "pakistani",
+    audio: "/audio/dil pagal.mp3",
+
+  },
+  {
+    id: 12,
+    title: "Umeedon Ki	",
+    artist: "Atif Aslam",
+    cover: "/umeed.jpg",
+    language: "Pakistani",
+    audio: "/audio/umeedon ki.mp3",
+  
   },
 ];
 
@@ -142,7 +200,7 @@ export default function Trendingsongs() {
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex justify-center gap-4 mb-10 flex-wrap">
+        <div className="flex justify-center gap-4 mb-10 flex-wrap ">
           {["All", "Punjabi", "Hindi", "Pakistani"].map((lang) => (
             <button
               key={lang}
@@ -255,7 +313,7 @@ export default function Trendingsongs() {
                     ? audioRef.current.play()
                     : audioRef.current.pause()
                 }
-                className="px-4 py-2 bg-green-500 rounded-full"
+                className="px-4 py-2 bg-blue-500 rounded-full"
               >
                 {audioRef.current && audioRef.current.paused ? "▶" : "⏸"}
               </button>

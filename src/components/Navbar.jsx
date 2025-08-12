@@ -15,8 +15,8 @@ function Navbar() {
   const shouldhideMenu = location.pathname === '/login';
   const isloginPage = location.pathname === "/login";
   const isAdmin = user?.role === "admin";
-  const isUser = user?.role === "user";
-
+   const isUser = user?.role === "user";
+        
   return (
     <header className="w-full px-4 py-4 bg-black text-white relative z-50">
       <div className="flex items-center justify-between">
@@ -29,8 +29,17 @@ function Navbar() {
             🎧 <span>Listen Now</span>
           </li>
           <li className="list-none"><Link to="/">Home</Link></li>
-          <li className="list-none"><Link to="/artists">Artists</Link></li>
-          <li className="list-none"><Link to="/register">Register</Link></li>
+          <li className="list-none"   onClick={() => {
+              if (user) {
+                navigate("/Artists");
+              } else {
+                alert("Please login to see the Artists...");
+              }
+            }}>
+            <Link to="/artists">Artists</Link>
+          
+          </li>
+          {/* <li className="list-none"><Link to="/register">Register</Link></li> */}
           {isAdmin && <li className="list-none"><Link to="/admin">Dashboard</Link></li>}
           {isUser && <li className="list-none"><Link to="/user">My Account</Link></li>}
         </nav>

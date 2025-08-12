@@ -22,6 +22,9 @@ const songs = [
 
 ];
 
+
+
+
 export default function Explore() {
     const Navigate = useNavigate();
     return (
@@ -34,7 +37,7 @@ export default function Explore() {
                         className="w-12 h-12 object-contain"
                         alt="Musium Logo"
                     />
-                    <h1 className="text-2xl md:text-3xl font-bold text-white">
+                    <h1 className="text-2xl md:text-3xl font-bold text-">
                         Search
                     </h1>
                 </div>
@@ -123,11 +126,11 @@ export default function Explore() {
               <div className="min-h-scree text-white px-4 py-8">
       <h1 className="text-3xl font-bold mb-6 text-center">Trending songs</h1>
 
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 ">
         {songs.map((song, index) => (
           <div
             key={index}
-            className="bg-gray-900 hover:bg-gray-800 overflow-hidden cursor-pointer shadow-xl  transition-transform hover:scale-105"
+            className="bg-gray-900  hover:bg-gray-800 overflow-hidden cursor-pointer shadow-xl  transition-transform hover:scale-105"
           >
             <img
               src={song.img}
