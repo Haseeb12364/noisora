@@ -14,6 +14,10 @@ import Userdashboard from './pages/Userdashboard';
 import Artists from './pages/Artists';
 import Trendingsongs from './pages/Trendingsongs';
 import Songs from './components/listennow';
+import AfsanaKhan from "./pages/afsanakhan";
+import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
+
 function App() {
   const location = useLocation();
   const hideNavbarAndFooter = ['/admin', '/login'];
@@ -29,8 +33,8 @@ function App() {
           <Route path="/user" element={<Userdashboard />} />
           <Route path="/Explorenow" element={<Explore />} />
         
-          <Route path="/atifaslam" element={<AtifAslam />} />
-
+          <Route path="/artist/atifaslam" element={<AtifAslam />} />
+          <Route path="/artist/afsanakhan" element={<AfsanaKhan />} />
         
           <Route path="/artists" element={<Artists />} />
           <Route path="/Trendingsongs" element={<Trendingsongs />} />

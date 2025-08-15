@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaPlay, FaPause, FaStepBackward, FaStepForward, FaTimes } from "react-icons/fa";
-
 export default function AtifAslam() {
 
   const [songs] = useState([
@@ -27,10 +26,9 @@ export default function AtifAslam() {
     } catch {
       return [];
     }
-  });
+  }); 
 
   const audioRef = useRef(new Audio());
-
   useEffect(() => {
     const audio = audioRef.current;
     const handleEnd = () => setIsPlaying(false);
