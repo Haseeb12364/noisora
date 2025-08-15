@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";      
 
 const artists = [
-  { name: "Atif Aslam", image: "/Atif1.jpg" },
+  { name: "Atif Aslam", image: "/Atif.jpg" },
   { name: "Arijit singh", image: "/arijit.webp" },  
   { name: "Shubh", image: "/Shubh.jpg" },
   { name: "Sidhu mosewala", image: "/sidhu.jfif" },

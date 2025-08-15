@@ -6,7 +6,6 @@ const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
-  
     const savedUser = localStorage.getItem("user");
     return savedUser ? JSON.parse(savedUser) : null;
   });
@@ -17,9 +16,6 @@ export function AuthProvider({ children }) {
     { email: "dummyAdmin@gmail.com", password: "27613537", role: "admin" },
     { email: "dummyUser@gmail.com", password: "12345678", role: "user" }
   ];
-   useEffect(()=>{
-    console.log("user data",user)
-   },[user]);
 
 
   const login = (userData) => {

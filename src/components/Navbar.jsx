@@ -21,7 +21,7 @@ function Navbar() {
     <header className="w-full px-4 py-4 bg-black text-white relative z-50">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold logo">
-          Nois<span className="text-cyan-400">ora</span>
+          Nois<span className="text-red-500">ora</span>
         </h1>
 
         <nav className="hidden lg:flex space-x-6 items-center italic">
