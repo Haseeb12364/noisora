@@ -9,12 +9,13 @@ import {
 
 export default function AfsanaKhan() {
   const [songs] = useState([
-    { id: 1, title: "Titliaan", album: "Single",img:"/afsana.jfif", year: 2020, audio: "/Artists/Afsana-Khan/khalija.mp3" },
+    { id: 1, title: "Titliaan", album: "Single", year: 2020, audio: "/Artists/Afsana-Khan/khalija.mp3" },
     { id: 2, title: "Bazaar", album: "Single", year: 2019, audio: "/Artists/AfsanaKhan/bazaar.mp3" },
     { id: 3, title: "Dhakka", album: "Single", year: 2021, audio: "/Artists/AfsanaKhan/dhakka.mp3" },
     { id: 4, title: "Chandigarh", album: "Single", year: 2022, audio: "/Artists/AfsanaKhan/chandigarh.mp3" },
   ]);
 
+  const [query, setQuery] = useState("");
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -41,7 +42,7 @@ export default function AfsanaKhan() {
   };
 
   const playNext = () => {
-    setCurrentSongIndex((prev) => (prev + 1) % songs.length);
+    setCurrentSongIndex((prev) => (prev + 1) % filteredSongs.length);
     setIsPlaying(false);
     setTimeout(() => {
       audioRef.current.play();
@@ -50,7 +51,7 @@ export default function AfsanaKhan() {
   };
 
   const playPrev = () => {
-    setCurrentSongIndex((prev) => (prev - 1 + songs.length) % songs.length);
+    setCurrentSongIndex((prev) => (prev - 1 + filteredSongs.length) % filteredSongs.length);
     setIsPlaying(false);
     setTimeout(() => {
       audioRef.current.play();
@@ -65,12 +66,20 @@ export default function AfsanaKhan() {
     setProgress(0);
   };
 
+  // Filter songs based on query
+  const filteredSongs = songs.filter(
+    (s) =>
+      s.title.toLowerCase().includes(query.toLowerCase()) ||
+      s.album.toLowerCase().includes(query.toLowerCase()) ||
+      String(s.year).includes(query)
+  );
+
   return (
     <div className="p-6 bg-gradient-to-br from-red-500 to-black min-h-screen text-white">
       {/* Artist Info */}
       <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
         <img
-          src="/afsana.jfif"
+          src="/Afsanakhan.jpg"
           alt="Afsana Khan"
           className="w-40 h-40 rounded-full shadow-lg border-4 border-white object-cover"
         />
@@ -84,16 +93,27 @@ export default function AfsanaKhan() {
         </div>
       </div>
 
+      {/* Search Input */}
+      <div className="mb-4">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search by title, album or year..."
+          className="w-full md:w-2/3 px-4 py-2 rounded-lg border border-white/30 bg-white/10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-black"
+        />
+      </div>
+
       {/* Song List */}
       <div className="bg-white/10 p-4 rounded-2xl shadow-lg">
         <h2 className="text-2xl font-semibold mb-4">Songs</h2>
         <ul className="space-y-3">
-          {songs.map((song, index) => (
+          {filteredSongs.map((song, index) => (
             <li
               key={song.id}
               className={`p-3 rounded-lg cursor-pointer transition ${
                 currentSongIndex === index
-                  ? "bg-black 500 text-white"
+                  ? "bg-black text-white"
                   : "bg-white/5 hover:bg-white/20"
               }`}
               onClick={() => {
@@ -112,6 +132,9 @@ export default function AfsanaKhan() {
               </div>
             </li>
           ))}
+          {filteredSongs.length === 0 && (
+            <li className="text-gray-300 p-3">No songs found.</li>
+          )}
         </ul>
       </div>
 
@@ -137,17 +160,24 @@ export default function AfsanaKhan() {
           </div>
         </div>
         <div className="mt-3">
-          <div className="text-sm mb-1">
-            {songs[currentSongIndex].title} • {songs[currentSongIndex].album}
-          </div>
-          <div className="w-full bg-white/20 h-1 rounded">
-            <div
-              className="bg-pink-500 h-1 rounded"
-              style={{ width: `${progress}%` }}
-            ></div>
-          </div>
+          {filteredSongs[currentSongIndex] && (
+            <>
+              <div className="text-sm mb-1">
+                {filteredSongs[currentSongIndex].title} • {filteredSongs[currentSongIndex].album}
+              </div>
+              <div className="w-full bg-white/20 h-1 rounded">
+                <div
+                  className="bg-pink-500 h-1 rounded"
+                  style={{ width: `${progress}%` }}
+                ></div>
+              </div>
+            </>
+          )}
         </div>
-        <audio ref={audioRef} src={songs[currentSongIndex].audio} />
+        <audio
+          ref={audioRef}
+          src={filteredSongs[currentSongIndex]?.audio}
+        />
       </div>
     </div>
   );
