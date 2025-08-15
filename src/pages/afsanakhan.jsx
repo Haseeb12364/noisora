@@ -185,59 +185,113 @@ export default function AfsanaKhan() {
           ))}
         </ul>
    {/* Player Modal */}
-        {current && (
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-              <button
-                onClick={() => {
-                  audioRef.current.pause();
-                  setCurrent(null);
-                  setIsPlaying(false);
-                }}
-                className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
-              >
-                <FaTimes size={20} />
-              </button>
-              <div className="flex flex-col items-center text-center">
-                <div className="w-32 h-32 rounded-lg overflow-hidden shadow-lg mb-4">
-                  <img src="/afsana.jfif" alt={current.title} className="w-full h-full object-cover" />
-                </div>
-                <h2 className="text-xl font-bold">{current.title}</h2>
-                <p className="text-gray-500 text-sm">{current.album} • {current.year}</p>
-              </div>
-              {/* Progress Bar */}
-              <div className="mt-6">
-                <input
-                  type="range"
-                  min="0"
-                  max={duration}
-                  value={progress}
-                  onChange={(e) => {
-                    audioRef.current.currentTime = e.target.value;
-                    setProgress(e.target.value);
-                  }}
-                  className="w-full accent-indigo-500"
-                />
-                <div className="flex justify-between text-xs text-gray-500 mt-1">
-                  <span>{formatTime(progress)}</span>
-                  <span>{formatTime(duration)}</span>
-                </div>
-              </div>
-              {/* Controls */}
-              <div className="mt-6 flex items-center justify-center gap-6">
-                <button onClick={handlePrevSong} className="p-3 bg-gray-100 rounded-full hover:bg-gray-200">
-                  <FaStepBackward size={18} />
-                </button>
-                <button onClick={() => playSong(current)} className="p-4 bg-indigo-500 text-white rounded-full hover:bg-indigo-600 shadow-lg">
-                  {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} />}
-                </button>
-                <button onClick={handleNextSong} className="p-3 bg-gray-100 rounded-full hover:bg-gray-200">
-                  <FaStepForward size={18} />
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+     {current && (
+       <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50">
+         <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
+           {/* Close Button */}
+           <button
+             onClick={() => {
+               audioRef.current.pause();
+               setCurrent(null);
+               setIsPlaying(false);
+             }}
+             className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+           >
+             <FaTimes size={20} />
+           </button>
+     
+           {/* Song Info with Spinning Disk */}
+           <div
+       className="relative w-40 h-40 rounded-full shadow-2xl overflow-hidden mb-4"
+       style={{
+         animation: "spin linear infinite",
+         animationDuration: "8s",
+         animationPlayState: isPlaying ? "running" : "paused",
+         boxShadow:
+           "0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff",
+         border: "4px solid transparent",
+         background:
+           "linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff)",
+         backgroundSize: "300% 300%",
+         animationName: isPlaying
+           ? "spinNeon"
+           : "pausedSpinNeon"
+       }}
+     >
+       {/* Album Art */}
+       <img
+         src="/Atif Aslam.jpg"
+         alt={current.title}
+         className="absolute inset-0 w-full h-full object-cover rounded-full mix-blend-overlay"
+       />
+     
+       {/* Vinyl Grooves */}
+       <div
+         className="absolute inset-0 rounded-full opacity-30"
+         style={{
+           background:
+             "repeating-radial-gradient(circle, transparent 0, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px)"
+         }}
+       />
+     
+       {/* Center Label */}
+       <div className="absolute inset-0 m-auto w-16 h-16 rounded-full ring-2 ring-white/60 overflow-hidden">
+         <img
+           src="/Atif Aslam.jpg"
+           alt="label"
+           className="w-full h-full object-cover"
+         />
+       </div>
+     
+       {/* Spindle Hole */}
+       <div className="absolute inset-0 m-auto w-3 h-3 rounded-full bg-white/90 shadow-inner" />
+     </div>
+     
+           {/* Progress Bar */}
+           <div className="mt-6">
+             <input
+               type="range"
+               min="0"
+               max={audioRef.current.duration || 0}
+               value={progress}
+               onChange={(e) => {
+                 audioRef.current.currentTime = e.target.value;
+               }}
+               className="w-full accent-indigo-500"
+             />
+             <div className="flex justify-between text-xs text-gray-500 mt-1">
+               <span>{formatTime(progress)}</span>
+               <span>{formatTime(audioRef.current.duration)}</span>
+             </div>
+           </div>
+     
+           {/* Controls */}
+           <div className="mt-6 flex items-center justify-center gap-6">
+             <button
+               onClick={handlePrevSong}
+               className="p-3 bg-gray-100 rounded-full hover:bg-gray-200"
+             >
+               <FaStepBackward size={18} />
+             </button>
+     
+             <button
+               onClick={() => playSong(current)}
+               className="p-4 bg-indigo-500 text-white rounded-full hover:bg-indigo-600 shadow-lg"
+             >
+               {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} />}
+             </button>
+     
+             <button
+               onClick={handleNextSong}
+               className="p-3 bg-gray-100 rounded-full hover:bg-gray-200"
+             >
+               <FaStepForward size={18} />
+             </button>
+           </div>
+         </div>
+       </div>
+     )}
+     
       </section>
     </div>
   );

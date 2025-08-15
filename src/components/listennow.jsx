@@ -3,18 +3,18 @@ function Songs() {
   const [songs, setsongs] = useState();
   const [loading, setloading] = useState(true);
 
-  useEffect(() => {
-    // fetch('https://itunes.apple.com/search?term=eminem&entity=song&limit=10')
-    fetch('https://dummyjson.com/todos')
+  // useEffect(() => {
+  //   // fetch('https://itunes.apple.com/search?term=eminem&entity=song&limit=10')
+  //   fetch('https://dummyjson.com/todos')
 
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       console.log(data);
 
-        setsongs(data.results);
-        setloading(false)
-      })
-  }, []);
+  //       setsongs(data.results);
+  //       setloading(false)
+  //     })
+  // }, []);
   if (loading) return <p>loading songs.. </p>
 
   return (
