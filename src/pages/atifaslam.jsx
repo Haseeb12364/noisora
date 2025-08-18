@@ -6,30 +6,68 @@ import {
   FaStepForward,
   FaTimes,
 } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa6";
 
-export default function AfsanaKhan() {
+export default function AtifAslam() {
   const [songs] = useState([
     { id: 1, title: "hona tha pyar", album: "Single", year: 2020, audio: "/Artists/atif-aslam/hona tha pyar.mp3" },
     { id: 2, title: "Dil dya gallan", album: "Single", year: 2019, audio: "/Artists/atif-aslam/dil dya gallan.mp3" },
-    { id: 3, title: "Dhere dhere sa ", album: "Single", year: 2021, audio: "/Artists/atif-aslam/tera hua.mp3" },
-    { id: 4, title: "Chandigarh", album: "Single", year: 2022, audio: "/Artists/AfsanaKhan/chandigarh.mp3" },
+    { id: 3, title: "Dhere dhere sa", album: "Single", year: 2021, audio: "/Artists/atif-aslam/tera hua.mp3" },
+    { id: 4, title: "Dhere dhere sa", album: "Single", year: 2021, audio: "/Artists/atif-aslam/tere bin.mp3" },
+    { id: 5, title: "", album: "Single", year: 2021, audio: "/Artists/atif-aslam/Darasal.mp3" },
+    { id: 6, title: "", album: "Single", year: 2021, audio: "/Artists/atif-aslam/dekhte dekhte.mp3" },
+    { id: 7, title: "", album: "Single", year: 2021, audio: "/Artists/atif-aslam/jal pari.mp3" },
+    { id: 8, title: "", album: "Single", year: 2021, audio: "/Artists/atif-aslam/o sathi.mp3" },
+    { id: 9, title: "", album: "Single", year: 2021, audio: "/Artists/atif-aslam/phli dfa.mp3" },
+    { id: 10, title: "", album: "Single", year: 2021, audio: "/Artists/atif-aslam/phli nazar mn.mp3" },
+    { id: 11, title: "", album: "Single", year: 2021, audio: "/Artists/atif-aslam/tere sang yara.mp3" },
+    { id: 12, title: "", album: "Single", year: 2021, audio: "/Artists/atif-aslam/Tham lo.mp3" },
+    { id: 13, title: "", album: "Single", year: 2021, audio: "/Artists/atif-aslam/tota jo kbhi tara.mp3" },
+    { id: 14, title: "", album: "Single", year: 2021, audio: "/Artists/atif-aslam/khair mngda.mp3" },
+
+
+
   ]);
 
   const [query, setQuery] = useState("");
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [likedSongs, setLikedSongs] = useState([]); // store liked song IDs
+
   const audioRef = useRef(null);
+
+  // Format seconds → mm:ss
+  const formatTime = (time) => {
+    if (!time || isNaN(time)) return "0:00";
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60).toString().padStart(2, "0");
+    return `${minutes}:${seconds}`;
+  };
 
   useEffect(() => {
     const audio = audioRef.current;
+
     const updateProgress = () => {
       if (audio.duration) {
         setProgress((audio.currentTime / audio.duration) * 100);
+        setCurrentTime(audio.currentTime);
       }
     };
+
+    const setAudioData = () => {
+      setDuration(audio.duration);
+    };
+
     audio.addEventListener("timeupdate", updateProgress);
-    return () => audio.removeEventListener("timeupdate", updateProgress);
+    audio.addEventListener("loadedmetadata", setAudioData);
+
+    return () => {
+      audio.removeEventListener("timeupdate", updateProgress);
+      audio.removeEventListener("loadedmetadata", setAudioData);
+    };
   }, []);
 
   const playPause = () => {
@@ -64,9 +102,16 @@ export default function AfsanaKhan() {
     audioRef.current.pause();
     setCurrentSongIndex(0);
     setProgress(0);
+    setCurrentTime(0);
+  };
+  const toggleLike = (id) => {
+    setLikedSongs((prev) =>
+      prev.includes(id) ? prev.filter((songId) => songId !== id) : [...prev, id]
+    );
   };
 
-  // Filter songs based on query
+
+  // Filter songs
   const filteredSongs = songs.filter(
     (s) =>
       s.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -79,19 +124,21 @@ export default function AfsanaKhan() {
       {/* Artist Info */}
       <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
         <img
-          src="/Atif.jpg"
-          alt="Afsana Khan"
+          src="/ATIF.webp"
+          alt="AP dhillon"
           className="w-40 h-40 rounded-full shadow-lg border-4 border-white object-cover"
         />
         <div>
           <h1 className="text-4xl font-bold">Atif Aslam</h1>
           <p className="mt-2 text-gray-200 max-w-lg">
-         Atif Aslam is a Pakistani playback singer known for his soulful voice and hit songs like "Tera Hone Laga Hoon" and "Jeene Laga Hoon". He has collaborated with many top artists in the Pakistani and Bollywood music industries and is celebrated for his versatile singing style.
+            AP Dhillon is a Canadian-Indian singer, rapper, and songwriter known
+            for Punjabi hit tracks like "Brown Munde" and "Excuses". His music
+            blends Punjabi lyrics with modern hip-hop and R&B vibes.
           </p>
         </div>
       </div>
 
-      {/* Search Input */}
+      {/* Search */}
       <div className="mb-4">
         <input
           type="text"
@@ -109,11 +156,10 @@ export default function AfsanaKhan() {
           {filteredSongs.map((song, index) => (
             <li
               key={song.id}
-              className={`p-3 rounded-lg cursor-pointer transition ${
-                currentSongIndex === index
-                  ? "bg-black text-white"
-                  : "bg-white/5 hover:bg-white/20"
-              }`}
+              className={`p-3 rounded-lg cursor-pointer transition ${currentSongIndex === index
+                ? "bg-cyan-500 text-white"
+                : "bg-white/5 hover:bg-white/20"
+                }`}
               onClick={() => {
                 setCurrentSongIndex(index);
                 setTimeout(() => {
@@ -128,6 +174,16 @@ export default function AfsanaKhan() {
                   {song.album} • {song.year}
                 </span>
               </div>
+              <button
+                onClick={() => toggleLike(song.id)}
+                className="ml-4 text-red-700 hover:scale-110 transition"
+              >
+                {likedSongs.includes(song.id) ? (
+                  <FaHeart size={20} />
+                ) : (
+                  <FaRegHeart size={20} />
+                )}
+              </button>
             </li>
           ))}
           {filteredSongs.length === 0 && (
@@ -148,7 +204,7 @@ export default function AfsanaKhan() {
             </button>
             <button
               onClick={playPause}
-              className="bg-white- p-3 rounded-full hover:bg-gray-600"
+              className="bg-cyan-800 p-3 rounded-full hover:bg-gray-600"
             >
               {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} />}
             </button>
@@ -157,25 +213,38 @@ export default function AfsanaKhan() {
             </button>
           </div>
         </div>
+
+        {/* Progress */}
         <div className="mt-3">
           {filteredSongs[currentSongIndex] && (
             <>
-              <div className="text-sm mb-1">
-                {filteredSongs[currentSongIndex].title} • {filteredSongs[currentSongIndex].album}
+              <div className="text-sm mb-2  justify-center items-center">
+                {filteredSongs[currentSongIndex].title} •{" "}
+                {filteredSongs[currentSongIndex].album}
               </div>
-              <div className="w-full bg-white/20 h-1 rounded">
-                <div
-                  className="bg-blue-500 h-1 rounded"
-                  style={{ width: `${progress}%` }}
-                ></div>
+
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-gray-300">{formatTime(currentTime)}</span>
+                <input
+                  type="range"
+                  min={0}
+                  max={100}
+                  value={progress}
+                  onChange={(e) => {
+                    const newProgress = e.target.value;
+                    setProgress(newProgress);
+                    audioRef.current.currentTime =
+                      (newProgress / 100) * audioRef.current.duration;
+                  }}
+                  className="w-full"
+                />
+                <span className="text-xs text-gray-300">{formatTime(duration)}</span>
               </div>
             </>
           )}
         </div>
-        <audio
-          ref={audioRef}
-          src={filteredSongs[currentSongIndex]?.audio}
-        />
+
+        <audio ref={audioRef} src={filteredSongs[currentSongIndex]?.audio} />
       </div>
     </div>
   );

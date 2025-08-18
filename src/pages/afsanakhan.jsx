@@ -7,29 +7,52 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
-export default function AfsanaKhan() {
+export default function Afsanakhan() {
   const [songs] = useState([
-    { id: 1, title: "Titliaan", album: "Single", year: 2020, audio: "/Artists/Afsana-Khan/khalija.mp3" },
-    { id: 2, title: "Bazaar", album: "Single", year: 2019, audio: "/Artists/AfsanaKhan/bazaar.mp3" },
-    { id: 3, title: "Dhakka", album: "Single", year: 2021, audio: "/Artists/AfsanaKhan/dhakka.mp3" },
-    { id: 4, title: "Chandigarh", album: "Single", year: 2022, audio: "/Artists/AfsanaKhan/chandigarh.mp3" },
+    { id: 1, title: "khalija", album: "Single", year: 2020, audio: "/Artists/Afsana-khan/khalija.mp3" },
+    { id: 2, title: "kaash tera ishq mn", album: "Single", year: 2019, audio: "/Artists/Afsana-khan/kaash.mp3" },
+    { id: 3, title: "Dhere dhere sa", album: "Single", year: 2021, audio: "/Artists/atif-aslam/tera hua.mp3" },
+    { id: 4, title: "Hum mohabat ke kabil", album: "Single", year: 2022, audio: "/Artists/Afsana-Khan/mohabat ke kabil.mp3" },
   ]);
 
   const [query, setQuery] = useState("");
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(0); 
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0); 
+
   const audioRef = useRef(null);
+
+  // Format seconds → mm:ss
+  const formatTime = (time) => {
+    if (!time || isNaN(time)) return "0:00";
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60).toString().padStart(2, "0");
+    return `${minutes}:${seconds}`;
+  };
 
   useEffect(() => {
     const audio = audioRef.current;
+
     const updateProgress = () => {
       if (audio.duration) {
         setProgress((audio.currentTime / audio.duration) * 100);
+        setCurrentTime(audio.currentTime);
       }
     };
+
+    const setAudioData = () => {
+      setDuration(audio.duration);
+    };
+
     audio.addEventListener("timeupdate", updateProgress);
-    return () => audio.removeEventListener("timeupdate", updateProgress);
+    audio.addEventListener("loadedmetadata", setAudioData);
+
+    return () => {
+      audio.removeEventListener("timeupdate", updateProgress);
+      audio.removeEventListener("loadedmetadata", setAudioData);
+    };
   }, []);
 
   const playPause = () => {
@@ -64,9 +87,10 @@ export default function AfsanaKhan() {
     audioRef.current.pause();
     setCurrentSongIndex(0);
     setProgress(0);
+    setCurrentTime(0);
   };
 
-  // Filter songs based on query
+  // Filter songs
   const filteredSongs = songs.filter(
     (s) =>
       s.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -79,21 +103,21 @@ export default function AfsanaKhan() {
       {/* Artist Info */}
       <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
         <img
-          src="/Afsanakhan.jpg"
-          alt="Afsana Khan"
+          src="/afsana.jpg"
+          alt="AP dhillon"
           className="w-40 h-40 rounded-full shadow-lg border-4 border-white object-cover"
         />
         <div>
-          <h1 className="text-4xl font-bold">Afsana Khan</h1>
+          <h1 className="text-4xl font-bold">Afsana khan</h1>
           <p className="mt-2 text-gray-200 max-w-lg">
-            Afsana Khan is a Punjabi playback singer known for her powerful vocals
-            and hit songs like "Titliaan" and "Bazaar". She has collaborated with many
-            top artists in the Punjabi music industry.
+            AP Dhillon is a Canadian-Indian singer, rapper, and songwriter known
+            for Punjabi hit tracks like "Brown Munde" and "Excuses". His music
+            blends Punjabi lyrics with modern hip-hop and R&B vibes.
           </p>
         </div>
       </div>
 
-      {/* Search Input */}
+      {/* Search */}
       <div className="mb-4">
         <input
           type="text"
@@ -113,7 +137,7 @@ export default function AfsanaKhan() {
               key={song.id}
               className={`p-3 rounded-lg cursor-pointer transition ${
                 currentSongIndex === index
-                  ? "bg-black text-white"
+                  ? "bg-red-900 text-white"
                   : "bg-white/5 hover:bg-white/20"
               }`}
               onClick={() => {
@@ -150,7 +174,7 @@ export default function AfsanaKhan() {
             </button>
             <button
               onClick={playPause}
-              className="bg-white- p-3 rounded-full hover:bg-gray-600"
+              className="bg-red-600 p-3 rounded-full hover:bg-gray-600"
             >
               {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} />}
             </button>
@@ -159,25 +183,38 @@ export default function AfsanaKhan() {
             </button>
           </div>
         </div>
+
+        {/* Progress */}
         <div className="mt-3">
           {filteredSongs[currentSongIndex] && (
             <>
               <div className="text-sm mb-1">
-                {filteredSongs[currentSongIndex].title} • {filteredSongs[currentSongIndex].album}
+                {filteredSongs[currentSongIndex].title} •{" "}
+                {filteredSongs[currentSongIndex].album}
               </div>
-              <div className="w-full bg-white/20 h-1 rounded">
-                <div
-                  className="bg-pink-500 h-1 rounded"
-                  style={{ width: `${progress}%` }}
-                ></div>
+
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-gray-300">{formatTime(currentTime)}</span>
+                <input
+                  type="range"
+                  min={0}
+                  max={100}
+                  value={progress}
+                  onChange={(e) => {
+                    const newProgress = e.target.value;
+                    setProgress(newProgress);
+                    audioRef.current.currentTime =
+                      (newProgress / 100) * audioRef.current.duration;
+                  }}
+                  className="w-full"
+                />
+                <span className="text-xs text-gray-300">{formatTime(duration)}</span>
               </div>
             </>
           )}
         </div>
-        <audio
-          ref={audioRef}
-          src={filteredSongs[currentSongIndex]?.audio}
-        />
+
+        <audio ref={audioRef} src={filteredSongs[currentSongIndex]?.audio} />
       </div>
     </div>
   );

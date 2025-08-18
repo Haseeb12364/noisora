@@ -1,0 +1,252 @@
+import React, { useState, useRef, useEffect } from "react";
+import {
+    FaPlay,
+    FaPause,
+    FaStepBackward,
+    FaStepForward,
+    FaTimes,
+} from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa6"; // For like button
+
+export default function Shubh() {
+    const [songs] = useState([
+        { id: 1, title: "Baller", album: "Still Rollin’", year: 2022, audio: "/Artists/Shubh/Baller.mp3" },
+        { id: 2, title: "Bandana", album: "Singles", year: 2019, audio: "/Artists/Shubh/Bandana.mp3" },
+        { id: 3, title: "Be Mine", album: "Singles", year: 2021, audio: "/Artists/Shubh/be mine.mp3" },
+        { id: 4, title: "Buckle Up", album: "Don’t Look", year: 2022, audio: "/Artists/Shubh/buckleup.mp3" },
+        { id: 5, title: "Carti", album: "Still Rollin’", year: 2022, audio: "/Artists/Shubh/carti.mp3" },
+        { id: 6, title: "Cheques", album: "Still Rollin’", year: 2022, audio: "/Artists/Shubh/cheques.mp3" },
+        { id: 7, title: "Dior", album: "Still Rollin’", year: 2022, audio: "/Artists/Shubh/Dior.mp3" },
+        { id: 8, title: "Hood Anthem", album: "Still Rollin’", year: 2022, audio: "/Artists/Shubh/Hood anthem.mp3" },
+        { id: 9, title: "Ice", album: "Still Rollin’", year: 2022, audio: "/Artists/Shubh/ice.mp3" },
+        { id: 10, title: "King Suit", album: "Still Rollin’", year: 2022, audio: "/Artists/Shubh/King suit.mp3" },
+        { id: 11, title: "MVP", album: "Still Rollin’", year: 2022, audio: "/Artists/Shubh/MVP.mp3" },
+        { id: 12, title: "OG", album: "Still Rollin’", year: 2022, audio: "/Artists/Shubh/OG.mp3" },
+        { id: 13, title: "Ruger", album: "Still Rollin’", year: 2022, audio: "/Artists/Shubh/Ruger.mp3" },
+        { id: 14, title: "Ruthless", album: "Still Rollin’", year: 2022, audio: "/Artists/Shubh/Ruthless.mp3" },
+        { id: 15, title: "Safety Off", album: "Still Rollin’", year: 2022, audio: "/Artists/Shubh/safety off.mp3" },
+    ]);
+
+    const [query, setQuery] = useState("");
+    const [currentSongIndex, setCurrentSongIndex] = useState(0);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [progress, setProgress] = useState(0);
+    const [currentTime, setCurrentTime] = useState(0);
+    const [duration, setDuration] = useState(0);
+    const [likedSongs, setLikedSongs] = useState([]); // store liked song IDs
+
+    const audioRef = useRef(null);
+
+    // Format seconds → mm:ss
+    const formatTime = (time) => {
+        if (!time || isNaN(time)) return "0:00";
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60).toString().padStart(2, "0");
+        return `${minutes}:${seconds}`;
+    };
+
+    useEffect(() => {
+        const audio = audioRef.current;
+
+        const updateProgress = () => {
+            if (audio.duration) {
+                setProgress((audio.currentTime / audio.duration) * 100);
+                setCurrentTime(audio.currentTime);
+            }
+        };
+
+        const setAudioData = () => {
+            setDuration(audio.duration);
+        };
+
+        audio.addEventListener("timeupdate", updateProgress);
+        audio.addEventListener("loadedmetadata", setAudioData);
+
+        return () => {
+            audio.removeEventListener("timeupdate", updateProgress);
+            audio.removeEventListener("loadedmetadata", setAudioData);
+        };
+    }, []);
+
+    const playPause = () => {
+        if (isPlaying) {
+            audioRef.current.pause();
+        } else {
+            audioRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+    };
+
+    const playNext = () => {
+        setCurrentSongIndex((prev) => (prev + 1) % filteredSongs.length);
+        setIsPlaying(false);
+        setTimeout(() => {
+            audioRef.current.play();
+            setIsPlaying(true);
+        }, 100);
+    };
+
+    const playPrev = () => {
+        setCurrentSongIndex((prev) => (prev - 1 + filteredSongs.length) % filteredSongs.length);
+        setIsPlaying(false);
+        setTimeout(() => {
+            audioRef.current.play();
+            setIsPlaying(true);
+        }, 100);
+    };
+
+    const closePlayer = () => {
+        setIsPlaying(false);
+        audioRef.current.pause();
+        setCurrentSongIndex(0);
+        setProgress(0);
+        setCurrentTime(0);
+    };
+
+    // Toggle like
+    const toggleLike = (id) => {
+        setLikedSongs((prev) =>
+            prev.includes(id) ? prev.filter((songId) => songId !== id) : [...prev, id]
+        );
+    };
+
+    // Filter songs
+    const filteredSongs = songs.filter(
+        (s) =>
+            s.title.toLowerCase().includes(query.toLowerCase()) ||
+            s.album.toLowerCase().includes(query.toLowerCase()) ||
+            String(s.year).includes(query)
+    );
+
+    return (
+        <div className="p-6 bg-gradient-to-br from-black to-gray-600 min-h-screen text-white">
+            {/* Artist Info */}
+            <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
+                <img
+                    src="/Shubh.jpg"
+                    alt="Shubh"
+                    className="w-40 h-40 rounded-full shadow-lg border-4 border-white object-cover"
+                />
+                <div>
+                    <h1 className="text-4xl font-bold">Shubh</h1>
+                    <p className="mt-2 text-gray-200 max-w-lg">
+                        Shubh is a Canadian-Punjabi rapper and singer known for hits like
+                        "Baller", "Cheques", and "Ice". His music blends Punjabi lyrics
+                        with trap and modern hip-hop vibes.
+                    </p>
+                </div>
+            </div>
+
+            {/* Search */}
+            <div className="mb-4">
+                <input
+                    type="text"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Search by title, album or year..."
+                    className="w-full md:w-2/3 px-4 py-2 rounded-lg border border-white/30 bg-white/10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-black"
+                />
+            </div>
+
+            {/* Song List */}
+            <div className="bg-white/10 p-4 rounded-2xl shadow-lg">
+                <h2 className="text-2xl font-semibold mb-4">Songs</h2>
+                <ul className="space-y-3">
+                    {filteredSongs.map((song, index) => (
+                        <li
+                            key={song.id}
+                            className={`p-3 rounded-lg cursor-pointer transition flex justify-between items-center ${currentSongIndex === index
+                                    ? "bg-black text-white"
+                                    : "bg-white/5 hover:bg-white/20"
+                                }`}
+                        >
+                            <div
+                                className="flex-1"
+                                onClick={() => {
+                                    setCurrentSongIndex(index);
+                                    setTimeout(() => {
+                                        audioRef.current.play();
+                                        setIsPlaying(true);
+                                    }, 100);
+                                }}
+                            >
+                                <span>{song.title}</span>
+                                <span className="ml-2 text-sm text-gray-300">
+                                    {song.album} • {song.year}
+                                </span>
+                            </div>
+                            <button
+                                onClick={() => toggleLike(song.id)}
+                                className="ml-4 text-red-500 hover:scale-110 transition"
+                            >
+                                {likedSongs.includes(song.id) ? (
+                                    <FaHeart size={20} />
+                                ) : (
+                                    <FaRegHeart size={20} />
+                                )}
+                            </button>
+                        </li>
+                    ))}
+                    {filteredSongs.length === 0 && (
+                        <li className="text-gray-300 p-3">No songs found.</li>
+                    )}
+                </ul>
+            </div>
+
+            {/* Player */}
+            <div className="fixed bottom-0 left-0 right-0 bg-black/80 backdrop-blur-lg p-4 flex flex-col">
+                <div className="flex justify-between items-center">
+                    <button onClick={closePlayer} className="text-red-500">
+                        <FaTimes size={20} />
+                    </button>
+                    <div className="flex items-center gap-4">
+                        <button onClick={playPrev}>
+                            <FaStepBackward size={20} />
+                        </button>
+                        <button
+                            onClick={playPause}
+                            className=" bg-white text-black p-3 rounded-full hover:bg-gray-600"
+                        >
+                            {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} />}
+                        </button>
+                        <button onClick={playNext}>
+                            <FaStepForward size={20} />
+                        </button>
+                    </div>
+                </div>
+
+                {/* Progress */}
+                <div className="mt-3">
+                    {filteredSongs[currentSongIndex] && (
+                        <>
+                            <div className="text-sm mb-1">
+                                {filteredSongs[currentSongIndex].title} •{" "}
+                                {filteredSongs[currentSongIndex].album}
+                            </div>
+
+                            <div className="flex items-center gap-2">
+                                <span className="text-xs text-gray-300">{formatTime(currentTime)}</span>
+                                <input
+                                    type="range"
+                                    min={0}
+                                    max={100}
+                                    value={progress}
+                                    onChange={(e) => {
+                                        const newProgress = e.target.value;
+                                        setProgress(newProgress);
+                                        audioRef.current.currentTime =
+                                            (newProgress / 100) * audioRef.current.duration;
+                                    }}
+                                    className="w-full"
+                                />
+                                <span className="text-xs text-gray-300">{formatTime(duration)}</span>
+                            </div>
+                        </>
+                    )}
+                </div>
+
+                <audio ref={audioRef} src={filteredSongs[currentSongIndex]?.audio} />
+            </div>
+        </div>
+    );
+}
