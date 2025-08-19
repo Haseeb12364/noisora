@@ -20,7 +20,7 @@ import Shubh from './pages/Shubh';
 import Neha from './pages/nehakakr';
 import Ali from './pages/alizafar';
 import AP from './pages/apdhillon';
-import Mosewala from './pages/sidhumosewala';
+import Mosewala from './pages/Sidhumosewala';
 import Momina from './pages/mominamustehsan';
 import Diljit from './pages/diljitsingh';
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
