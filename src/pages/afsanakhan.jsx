@@ -49,7 +49,7 @@ const [songs] = useState([
   };
 
   useEffect(() => {
-    const audio = audioRef.current;
+    const audio = audioRef.current;   
 
     const updateProgress = () => {
       if (audio.duration) {
