@@ -6,14 +6,16 @@ import {
   FaStepForward,
   FaTimes,
 } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa6";
 
-export default function mosewala() {
-  const [songs] = useState([
-    { id: 1, title: "hona tha pyar", album: "Single", year: 2020, audio: "/Artists/atif-aslam/hona tha pyar.mp3" },
-    { id: 2, title: "Dil dya gallan", album: "Single", year: 2019, audio: "/Artists/atif-aslam/dil dya gallan.mp3" },
-    { id: 3, title: "Dhere dhere sa", album: "Single", year: 2021, audio: "/Artists/atif-aslam/tera hua.mp3" },
-    { id: 4, title: "Chandigarh", album: "Single", year: 2022, audio: "/Artists/AfsanaKhan/chandigarh.mp3" },
-  ]);
+export default function Mosewala() {
+const [songs] = useState([
+  { id: 1, title: "Cadillac", album: "Moosetape", year: 2021, audio: "/Artists/sidho/Cadillac.mp3" },
+  { id: 2, title: "Choose", album: "Moosetape", year: 2021, audio: "/Artists/sidho/Choose.mp3" },
+  { id: 3, title: "MST", album: "Moosetape", year: 2021, audio: "/Artists/sidho/MST.mp3" },
+  { id: 4, title: "Putt Daawan Da", album: "Single", year: 2019, audio: "/Artists/sidho/put dakuan dai.mp3" },
+  { id: 5, title: "Rajj Ke", album: "PBX 1", year: 2018, audio: "/Artists/sidho/raj kabru.mp3" },
+]);
 
   const [query, setQuery] = useState("");
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
@@ -99,11 +101,11 @@ export default function mosewala() {
   );
 
   return (
-    <div className="p-6 bg-gradient-to-br from-cyan-500 to-black min-h-screen text-white">
+    <div className="p-6 bg-gradient-to-br from-black to-red-950 min-h-screen text-white">
       {/* Artist Info */}
       <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
         <img
-          src="/ap.jpg"
+          src="/sidhu.jfif"
           alt="AP dhillon"
           className="w-40 h-40 rounded-full shadow-lg border-4 border-white object-cover"
         />

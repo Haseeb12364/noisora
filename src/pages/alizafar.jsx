@@ -102,7 +102,7 @@ export default function Ali() {
       {/* Artist Info */}
       <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
         <img
-          src="/ap.jpg"
+          src="/Ali.webp"
           alt="AP dhillon"
           className="w-40 h-40 rounded-full shadow-lg border-4 border-white object-cover"
         />

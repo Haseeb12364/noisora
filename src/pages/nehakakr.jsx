@@ -9,18 +9,40 @@ import {
 
 export default function Neha() {
   const [songs] = useState([
-    { id: 1, title: "", album: "Single", year: 2020, audio: "/Artists/Shub/hona tha pyar.mp3" },
-    { id: 2, title: "", album: "Single", year: 2019, audio: "/Artists/atif-aslam/dil dya gallan.mp3" },
-    { id: 3, title: "", album: "Single", year: 2021, audio: "/Artists/atif-aslam/tera hua.mp3" },
-    { id: 4, title: "", album: "Single", year: 2022, audio: "/Artists/AfsanaKhan/chandigarh.mp3" },
+    { id: 1, title: "Ankh Marey", album: "Simmba", year: 2018, audio: "/Artists/neha-kakr/Ankh mare.mp3" },
+    { id: 2, title: "Badri Ki Dulhania", album: "Badrinath Ki Dulhania", year: 2017, audio: "/Artists/neha-kakr/badri ki dulhania.mp3" },
+    { id: 3, title: "Chamma Chamma", album: "Fraud Saiyaan", year: 2019, audio: "/Artists/neha-kakr/Chama chama.mp3" },
+    { id: 4, title: "Dil Ko Karaar Aaya", album: "Single", year: 2020, audio: "/Artists/neha-kakr/dil ko karar.mp3" },
+    { id: 5, title: "Dilbar", album: "Satyameva Jayate", year: 2018, audio: "/Artists/neha-kakr/Dilbar.mp3" },
+    { id: 6, title: "Gali Gali", album: "KGF", year: 2018, audio: "/Artists/neha-kakr/gali gali mn.mp3" },
+    { id: 7, title: "Goa Beach", album: "Single", year: 2020, audio: "/Artists/neha-kakr/Goa beach.mp3" },
+    { id: 8, title: "Garmi", album: "Street Dancer 3D", year: 2020, audio: "/Artists/neha-kakr/GArmi.mp3" },
+    { id: 9, title: "Hook Up Song", album: "Student of the Year 2", year: 2019, audio: "/Artists/neha-kakr/hook up.mp3" },
+    { id: 10, title: "Kala Chashma", album: "Baar Baar Dekho", year: 2016, audio: "/Artists/neha-kakr/kala chashma.mp3" },
+    { id: 11, title: "Khuda Bhi Jab", album: "Bhushan Kumar’s Single", year: 2017, audio: "/Artists/neha-kakr/khuda b jab.mp3" },
+    { id: 12, title: "Laila Main Laila", album: "Raees", year: 2017, audio: "/Artists/neha-kakr/laila o laila.mp3" },
+    { id: 13, title: "Coca Cola (Luka Chuppi)", album: "Luka Chuppi", year: 2019, audio: "/Artists/neha-kakr/luka chupi.mp3" },
+    { id: 14, title: "Mile Ho Tum (Mahi Ve)", album: "Fever", year: 2016, audio: "/Artists/neha-kakr/Mahi we.mp3" },
+    { id: 15, title: "O Saki Saki", album: "Batla House", year: 2019, audio: "/Artists/neha-kakr/o saki saki.mp3" },
+    { id: 16, title: "Pachtaoge", album: "Single", year: 2019, audio: "/Artists/neha-kakr/pochda hi ni.mp3" },
+    { id: 17, title: "Qaafirana", album: "Kedarnath", year: 2018, audio: "/Artists/neha-kakr/Qafirana.mp3" },
+    { id: 18, title: "Saiyaan Ji", album: "Single", year: 2021, audio: "/Artists/neha-kakr/sayan ji.mp3" },
+    { id: 19, title: "Superstar", album: "Single", year: 2020, audio: "/Artists/neha-kakr/Suoerstar.mp3" },
+    { id: 20, title: "Tera Suit", album: "Single", year: 2021, audio: "/Artists/neha-kakr/Tera suit.mp3" },
+    { id: 21, title: "Teri Aankhon Mein", album: "Single", year: 2020, audio: "/Artists/neha-kakr/teri ankhon mn.mp3" },
+    { id: 21, title: "Teri Aankhon Mein", album: "Single", year: 2020, audio: "/Artists/neha-kakr/niklay current.mp3" },
+    { id: 21, title: "Teri Aankhon Mein", album: "Single", year: 2020, audio: "/Artists/neha-kakr/kla sona ni.mp3" },
+    { id: 22, title: "Tera Ghata (Reprise)", album: "Single", year: 2018, audio: "/Artists/neha-kakr/teri ghta.mp3" },
+    { id: 23, title: "Yaad Piya Ki Aane Lagi", album: "Single", year: 2019, audio: "/Artists/neha-kakr/yad piya ki anay lgi.mp3" },
   ]);
+
 
   const [query, setQuery] = useState("");
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0); 
+  const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0); 
+  const [duration, setDuration] = useState(0);
 
   const audioRef = useRef(null);
 
@@ -135,11 +157,10 @@ export default function Neha() {
           {filteredSongs.map((song, index) => (
             <li
               key={song.id}
-              className={`p-3 rounded-lg cursor-pointer transition ${
-                currentSongIndex === index
+              className={`p-3 rounded-lg cursor-pointer transition ${currentSongIndex === index
                   ? "bg-black text-white"
                   : "bg-white/5 hover:bg-white/20"
-              }`}
+                }`}
               onClick={() => {
                 setCurrentSongIndex(index);
                 setTimeout(() => {

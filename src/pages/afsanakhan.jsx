@@ -8,12 +8,28 @@ import {
 } from "react-icons/fa";
 
 export default function Afsanakhan() {
-  const [songs] = useState([
-    { id: 1, title: "khalija", album: "Single", year: 2020, audio: "/Artists/Afsana-khan/khalija.mp3" },
-    { id: 2, title: "kaash tera ishq mn", album: "Single", year: 2019, audio: "/Artists/Afsana-khan/kaash.mp3" },
-    { id: 3, title: "Dhere dhere sa", album: "Single", year: 2021, audio: "/Artists/atif-aslam/tera hua.mp3" },
-    { id: 4, title: "Hum mohabat ke kabil", album: "Single", year: 2022, audio: "/Artists/Afsana-Khan/mohabat ke kabil.mp3" },
-  ]);
+const [songs] = useState([
+  { id: 1, title: "Khalija", album: "Single", year: 2020, audio: "/Artists/Afsana-khan/khalija.mp3" },
+  { id: 2, title: "Kaash Tera Ishq Main Hota", album: "Single", year: 2019, audio: "/Artists/Afsana-khan/kaash.mp3" },
+  { id: 4, title: "Mohabbat Ke Kabil", album: "Single", year: 2022, audio: "/Artists/Afsana-Khan/mohabat ke kabil.mp3" },
+  { id: 5, title: "Dhakka", album: "Single", year: 2019, audio: "/Artists/Afsana-Khan/Dhaaka.mp3" },
+  { id: 6, title: "Dila Himmat Kar", album: "Single", year: 2020, audio: "/Artists/Afsana-khan/dila himat kr.mp3" },
+  { id: 7, title: "Hanju", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/Hanju.mp3" },
+  { id: 8, title: "Koi Si", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/koi_si.mp3" },
+  { id: 9, title: "Taweez", album: "Single", year: 2020, audio: "/Artists/Afsana-khan/taweez.mp3" },
+  { id: 10, title: "855", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/855.mp3" },
+  { id: 11, title: "Bechari", album: "Single", year: 2022, audio: "/Artists/Afsana-khan/Bechari.mp3" },
+  { id: 12, title: "Bazaar", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/Bazzar.mp3" },
+  { id: 13, title: "Badmashi", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/Badmasi.mp3" },
+  { id: 14, title: "Jutti Jharrke", album: "Single", year: 2020, audio: "/Artists/Afsana-khan/jutti Jharrke.mp3" },
+  { id: 15, title: "Mohalla", album: "Single", year: 2020, audio: "/Artists/Afsana-khan/mohala.mp3" },
+  { id: 16, title: "Mohabbat Ke Kabil (Reprise)", album: "Single", year: 2022, audio: "/Artists/Afsana-khan/mohabat k kabil.mp3" },
+  { id: 17, title: "Larebaz", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/Larebaz.mp3" },
+  { id: 18, title: "Sajna Merya", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/sajna merya.mp3" },
+  { id: 19, title: "Naina De Thekay", album: "Single", year: 2020, audio: "/Artists/Afsana-khan/naina de thekay.mp3" },
+  { id: 20, title: "Rabba Mereya", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/Rabba_Mere.mp3" },
+]);
+
 
   const [query, setQuery] = useState("");
   const [currentSongIndex, setCurrentSongIndex] = useState(0);

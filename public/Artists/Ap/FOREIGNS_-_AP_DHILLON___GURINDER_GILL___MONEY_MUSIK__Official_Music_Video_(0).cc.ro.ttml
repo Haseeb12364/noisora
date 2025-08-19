@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<tt xml:lang="ro" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" ttp:profile="http://www.w3.org/TR/profile/sdp-us" >
+<head>
+<styling>
+<style xml:id="s1" tts:textAlign="center" tts:extent="90% 90%" tts:origin="5% 5%" tts:displayAlign="after"/>
+<style xml:id="s2" tts:fontSize=".72c" tts:backgroundColor="black" tts:color="white"/>
+</styling>
+<layout>
+<region xml:id="r1" style="s1"/>
+</layout>
+</head>
+<body region="r1">
+<div>
+<p begin="00:00:03.110" end="00:00:12.980" style="s2">psiholog noroc aplic ăla al rigorii și</p>
+<p begin="00:00:06.690" end="00:00:16.609" style="s2">cadouri și cel mai televizor Mă uit la</p>
+<p begin="00:00:12.980" end="00:00:21.000" style="s2">psiholog mecair de narcise Read</p>
+<p begin="00:00:16.609" end="00:00:24.680" style="s2">What în Ardeal aveti o carte de vizită a</p>
+<p begin="00:00:21.000" end="00:00:27.470" style="s2">evita bag ideală Celestia</p>
+<p begin="00:00:24.680" end="00:00:30.109" style="s2">polipnee a week</p>
+<p begin="00:00:27.470" end="00:00:36.170" style="s2">foarte bine și</p>
+<p begin="00:00:30.109" end="00:00:36.170" style="s2">echipament Neața draga noastră ghidurile</p>
+<p begin="00:00:38.000" end="00:00:43.940" style="s2">furioasa pe</p>
+<p begin="00:00:40.969" end="00:00:48.710" style="s2">strada după ce</p>
+<p begin="00:00:43.940" end="00:00:50.930" style="s2">mă la taraba de Cult ciudat Toc toc</p>
+<p begin="00:00:48.710" end="00:00:54.780" style="s2">Irina deja</p>
+<p begin="00:00:50.930" end="00:01:00.760" style="s2">dotări de calitate avem nemuririi fără</p>
+<p begin="00:00:54.780" end="00:01:03.730" style="s2">cap mine luni a căpușat sabie cerealele</p>
+<p begin="00:01:00.760" end="00:01:08.880" style="s2">în viitor e reclama Orange de mai târziu</p>
+<p begin="00:01:03.730" end="00:01:13.299" style="s2">dorit Japonia ar fi că la rândul</p>
+<p begin="00:01:08.880" end="00:01:16.450" style="s2">conducă și multe cardiolog cabinet de</p>
+<p begin="00:01:13.299" end="00:01:19.330" style="s2">cameră cutie să luăm catedra de</p>
+<p begin="00:01:16.450" end="00:01:23.320" style="s2">Psihologie si psihoterapie Begu mai ta</p>
+<p begin="00:01:19.330" end="00:01:27.039" style="s2">iti din Houston ora capacul și atât de</p>
+<p begin="00:01:23.320" end="00:01:31.270" style="s2">bine vad urme Urania folosite fie</p>
+<p begin="00:01:27.039" end="00:01:34.890" style="s2">televizor Exotic uriașă aplică la</p>
+<p begin="00:01:31.270" end="00:01:37.470" style="s2">alergii boli psihice mai</p>
+<p begin="00:01:34.890" end="00:01:40.080" style="s2">mult ca orice pe</p>
+<p begin="00:01:37.470" end="00:01:45.270" style="s2">lumea asta</p>
+<p begin="00:01:40.080" end="00:01:52.030" style="s2">bine la venituri și de a</p>
+<p begin="00:01:45.270" end="00:01:52.030" style="s2">te îmbolnăvi arata bine la Râmnic</p>
+<p begin="00:02:00.650" end="00:02:06.829" style="s2">[Muzică]</p>
+</div>
+</body>
+</tt>

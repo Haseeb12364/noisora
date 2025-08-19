@@ -19,6 +19,10 @@ import Arijitsingh from './pages/arijitsingh';
 import Shubh from './pages/Shubh';
 import Neha from './pages/nehakakr';
 import Ali from './pages/alizafar';
+import AP from './pages/apdhillon';
+import Mosewala from './pages/sidhumosewala';
+import Momina from './pages/mominamustehsan';
+import Diljit from './pages/diljitsingh';
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 
@@ -42,7 +46,11 @@ function App() {
           <Route path="/artist/arijitsingh" element={<Arijitsingh />} />
           <Route path="/artist/Shubh" element={<Shubh />} />
           <Route path="/artist/nehakaakr" element={<Neha />} />
-                    <Route path="/artist/alizafar" element={<Ali />} />
+          <Route path="/artist/alizafar" element={<Ali />} />
+          <Route path="/artist/apdhillon" element={<AP />} />
+          <Route path="/artist/sidhumosewala" element={<Mosewala />} />
+          <Route path="/artist/mominamustehsan" element={<Momina />} />
+          <Route path="/artist/diljitsingh" element={<Diljit />} />
 
 
 
