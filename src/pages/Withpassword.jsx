@@ -26,7 +26,8 @@ export default function Login() {
         }
 
         if (res?.email) {
-            navigate("/")
+            navigate("");
+
         }
 
     }
@@ -34,19 +35,19 @@ export default function Login() {
     return (
 
         <div className="min-h-screen bg-black flex items-center justify-center text-white">
-            <div className="w-[300px] flex flex-col items-center space-y-5  ">
+            <div className="w-[300px] flex flex-col items-center space-y-5 justify-center ">
                 <img
-                    src="/musium logo.png"
-                    className="w- h-32 object-contain"
+                    src="/app logo.png"
+                    className=" h-28 object-contain "
                 />
 
-                <h2 className="text-xl font-semibold text-center">Login to your account</h2>
+                {/* <h2 className="text-xl font-semibold text-center">Login to your account</h2> */}
                 <div className="w-full space-y-2">
                     <input type="email" placeholder="user" name="user" value={email} className=" p-5 w-full flex items-center justify-center space-x-2 bg-[#1f1f1f] text-white py-2 rounded-lg   hover:bg-[#2a2a2a]" onChange={(e) => setEmail(e.target.value)}>
                         {/* <FaGoogle className="text-red-400" /> */}
                     </input>
                     <input type="password" placeholder="enter your password" name="password" value={password} className=" p-5 w-full flex items-center justify-center space-x-2 bg-[#1f1f1f] text-white py-2 rounded-lg hover:bg-[#2a2a2a]" onChange={(e) => setPassword(e.target.value)}>
-                        {/* <FaFacebookF className="text-blue-500" /> */}
+                        {/* <FaFacebookF className="text-blue-500" /> */}    
                         {/* <span>Continue with Facebook</span>  */}
                     </input>
                     {/* <label>

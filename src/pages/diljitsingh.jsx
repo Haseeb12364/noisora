@@ -130,9 +130,10 @@ const [songs] = useState([
         <div>
           <h1 className="text-4xl font-bold">Diljit Singh</h1>
           <p className="mt-2 text-gray-200 max-w-lg">
-            AP Dhillon is a Canadian-Indian singer, rapper, and songwriter known
-            for Punjabi hit tracks like "Brown Munde" and "Excuses". His music
-            blends Punjabi lyrics with modern hip-hop and R&B vibes.
+         Diljit Dosanjh is an Indian Punjabi singer, actor, and songwriter known for 
+hits like "Do You Know", "Proper Patola", and "G.O.A.T". His music blends 
+Punjabi folk with pop and hip-hop, making him a global icon in Punjabi music.
+
           </p>
         </div>
       </div>

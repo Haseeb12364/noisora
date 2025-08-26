@@ -121,7 +121,7 @@ export default function Neha() {
   );
 
   return (
-    <div className="p-6 bg-gradient-to-br from-purple-500 to-black min-h-screen text-white">
+    <div className="p-6 bg-gradient-to-br from-purple-900 to-pink-800 min-h-screen text-white">
       {/* Artist Info */}
       <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
         <img
@@ -132,9 +132,11 @@ export default function Neha() {
         <div>
           <h1 className="text-4xl font-bold">Neha kakar</h1>
           <p className="mt-2 text-gray-200 max-w-lg">
-            AP Dhillon is a Canadian-Indian singer, rapper, and songwriter known
-            for Punjabi hit tracks like "Brown Munde" and "Excuses". His music
-            blends Punjabi lyrics with modern hip-hop and R&B vibes.
+Neha Kakkar is an Indian playback singer known for her energetic and catchy 
+songs like "Kala Chashma", "Dilbar", and "Aankh Marey". Her music blends 
+Bollywood pop with dance and party vibes, making her one of India’s most 
+popular singers.
+
           </p>
         </div>
       </div>

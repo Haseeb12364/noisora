@@ -18,36 +18,49 @@ export function AuthProvider({ children }) {
   ];
 
 
-  const login = (userData) => {
-  
-    if (typeof userData === "string") {
-      const decoded = jwtDecode(userData);
-      setUser(decoded);
-      localStorage.setItem("user", JSON.stringify(decoded));
-      navigate("/");
-      return { success: true, user: decoded };
-    }
+const login = (userData) => {
+  if (typeof userData === "string") {
+    const decoded = jwtDecode(userData);
+    setUser(decoded);
+    localStorage.setItem("user", JSON.stringify(decoded));
 
-
-    const foundUser = users.find((u) => u.email === userData.email);
-    if (!foundUser) {
-      return { success: false, message: "User not found" };
-    }
-
-    if (userData.password === foundUser.password) {
-      setUser(foundUser);
-      localStorage.setItem("user", JSON.stringify(foundUser)); 
-      navigate("/");
-      return { success: true, user: foundUser };
+    // Redirect based on role
+    if (decoded.role === "admin") {
+      navigate("/admin");
     } else {
-      return { success: false, message: "Incorrect Password!!!" };
+      navigate("/user");
     }
-  };
+
+    return { success: true, user: decoded };
+  }
+
+  const foundUser = users.find((u) => u.email === userData.email);
+  if (!foundUser) {
+    return { success: false, message: "User not found" };
+  }
+
+  if (userData.password === foundUser.password) {
+    setUser(foundUser);
+    localStorage.setItem("user", JSON.stringify(foundUser));
+
+    // Redirect based on role
+    if (foundUser.role === "admin") {
+      navigate("/");
+    } else {
+      navigate("/user");
+    }
+
+    return { success: true, user: foundUser };
+  } else {
+    return { success: false, message: "Incorrect Password!!!" };
+  }
+};
+
 
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user"); 
-    navigate("/login");
+    navigate("/");
   };
 
   return (

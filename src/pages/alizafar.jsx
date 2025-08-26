@@ -109,9 +109,10 @@ export default function Ali() {
         <div>
           <h1 className="text-4xl font-bold">Ali Zafar</h1>
           <p className="mt-2 text-gray-200 max-w-lg">
-            AP Dhillon is a Canadian-Indian singer, rapper, and songwriter known
-            for Punjabi hit tracks like "Brown Munde" and "Excuses". His music
-            blends Punjabi lyrics with modern hip-hop and R&B vibes.
+       Ali Zafar is a Pakistani singer, songwriter, and actor known for hit songs 
+like "Channo", "Jhoom", and "Madhubala". His music blends pop, rock, and 
+folk influences, making him one of the most versatile artists in South Asia.
+
           </p>
         </div>
       </div>

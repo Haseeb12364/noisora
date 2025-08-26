@@ -9,25 +9,7 @@ import {
 
 export default function Afsanakhan() {
 const [songs] = useState([
-  { id: 1, title: "Khalija", album: "Single", year: 2020, audio: "/Artists/Afsana-khan/khalija.mp3" },
-  { id: 2, title: "Kaash Tera Ishq Main Hota", album: "Single", year: 2019, audio: "/Artists/Afsana-khan/kaash.mp3" },
-  { id: 4, title: "Mohabbat Ke Kabil", album: "Single", year: 2022, audio: "/Artists/Afsana-Khan/mohabat ke kabil.mp3" },
-  { id: 5, title: "Dhakka", album: "Single", year: 2019, audio: "/Artists/Afsana-Khan/Dhaaka.mp3" },
-  { id: 6, title: "Dila Himmat Kar", album: "Single", year: 2020, audio: "/Artists/Afsana-khan/dila himat kr.mp3" },
-  { id: 7, title: "Hanju", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/Hanju.mp3" },
-  { id: 8, title: "Koi Si", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/koi_si.mp3" },
-  { id: 9, title: "Taweez", album: "Single", year: 2020, audio: "/Artists/Afsana-khan/taweez.mp3" },
-  { id: 10, title: "855", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/855.mp3" },
-  { id: 11, title: "Bechari", album: "Single", year: 2022, audio: "/Artists/Afsana-khan/Bechari.mp3" },
-  { id: 12, title: "Bazaar", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/Bazzar.mp3" },
-  { id: 13, title: "Badmashi", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/Badmasi.mp3" },
-  { id: 14, title: "Jutti Jharrke", album: "Single", year: 2020, audio: "/Artists/Afsana-khan/jutti Jharrke.mp3" },
-  { id: 15, title: "Mohalla", album: "Single", year: 2020, audio: "/Artists/Afsana-khan/mohala.mp3" },
-  { id: 16, title: "Mohabbat Ke Kabil (Reprise)", album: "Single", year: 2022, audio: "/Artists/Afsana-khan/mohabat k kabil.mp3" },
-  { id: 17, title: "Larebaz", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/Larebaz.mp3" },
-  { id: 18, title: "Sajna Merya", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/sajna merya.mp3" },
-  { id: 19, title: "Naina De Thekay", album: "Single", year: 2020, audio: "/Artists/Afsana-khan/naina de thekay.mp3" },
-  { id: 20, title: "Rabba Mereya", album: "Single", year: 2021, audio: "/Artists/Afsana-khan/Rabba_Mere.mp3" },
+ 
 ]);
 
 
@@ -126,9 +108,10 @@ const [songs] = useState([
         <div>
           <h1 className="text-4xl font-bold">Afsana khan</h1>
           <p className="mt-2 text-gray-200 max-w-lg">
-            AP Dhillon is a Canadian-Indian singer, rapper, and songwriter known
-            for Punjabi hit tracks like "Brown Munde" and "Excuses". His music
-            blends Punjabi lyrics with modern hip-hop and R&B vibes.
+         Afsana Khan is an Indian Punjabi playback singer known for her powerful and 
+emotional voice in songs like "Titliaan" and "Dhakka". Her music blends 
+Punjabi folk with contemporary beats, making her a rising star in Punjabi music.
+
           </p>
         </div>
       </div>

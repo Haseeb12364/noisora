@@ -122,9 +122,11 @@ export default function Momina() {
         <div>
           <h1 className="text-4xl font-bold">Momina mostehsan</h1>
           <p className="mt-2 text-gray-200 max-w-lg">
-            AP Dhillon is a Canadian-Indian singer, rapper, and songwriter known
-            for Punjabi hit tracks like "Brown Munde" and "Excuses". His music
-            blends Punjabi lyrics with modern hip-hop and R&B vibes.
+Momina Mustehsan is a Pakistani singer, songwriter, and social activist 
+known for her soulful voice in songs like "Afreen Afreen" and "Baari". 
+Her music blends pop and folk influences, earning her widespread 
+recognition across South Asia.
+
           </p>
         </div>
       </div>

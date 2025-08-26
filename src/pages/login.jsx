@@ -20,13 +20,13 @@ export default function Login() {
     <>
       <Link to={"/"}>
         <div>
-          <TfiAngleLeft className="text-2xl cursor-pointer text-white m-3" />
+             <TfiAngleLeft className="text-2xl cursor-pointer text-white m-3" />
         </div>
       </Link>
 
       <div className="min-h-screen bg-black flex items-center justify-center text-white">
-        <div className="w-[300px] flex flex-col items-center space-y-5">
-          <img src="/musium logo.png" className="h-32 object-contain" />
+        <div className="w-[300px] flex flex-col items-center space-y-5 justify-between">
+          <img src="/app logo.png" className="h-20 object-contain  font-bold" />
           <h2 className="text-xl font-semibold text-center">Let’s get you in</h2>
 
           <div className="w-full space-y-2">
