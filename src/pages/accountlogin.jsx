@@ -5,13 +5,11 @@ export default function Login() {
     <div className="min-h-screen bg-black flex items-center justify-center text-white">
       <div className="w-[300px] flex flex-col items-center space-y-5 ">
 
-
         <img
           src="/musium logo.png"
 
           className="w- h-32 object-contain"
         />
-
 
         <h2 className="text-xl font-semibold text-center">Let’s get you in</h2>
 
@@ -56,3 +54,6 @@ export default function Login() {
     </div>
   );
 }
+
+
+

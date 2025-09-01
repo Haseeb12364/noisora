@@ -11,7 +11,7 @@ export default function Artists() {
         {artists.map((a) => (
           <Link
             key={a.slug}
-            to={`/artist/${a.slug}`}  
+            to={`/artist/${a.slug}`}
             className="block rounded-2xl shadow-lg hover:shadow-xl transition bg-gray-900 hover:bg-gray-800 overflow-hidden"
           >
             <img

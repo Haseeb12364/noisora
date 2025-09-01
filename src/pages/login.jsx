@@ -3,13 +3,25 @@ import { FaFacebookF, FaApple } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 
 export default function Login() {
   const { login } = useAuth();
 
   const handleGoogleSuccess = (credentialResponse) => {
-  
-    login(credentialResponse.credential);
+    if (credentialResponse.credential) {
+      const decoded = jwtDecode(credentialResponse.credential);
+
+      // Save email in localStorage
+      const googleUser = {
+        email: decoded.email,
+        role: "admin", // or "user", your choice
+      };
+      localStorage.setItem("user", JSON.stringify(googleUser));
+
+      // Call context login (so state updates)
+      login(credentialResponse.credential);
+    }
   };
 
   const handleGoogleError = () => {
@@ -20,13 +32,13 @@ export default function Login() {
     <>
       <Link to={"/"}>
         <div>
-             <TfiAngleLeft className="text-2xl cursor-pointer text-white m-3" />
+          <TfiAngleLeft className="text-2xl cursor-pointer text-white m-3" />
         </div>
       </Link>
 
       <div className="min-h-screen bg-black flex items-center justify-center text-white">
         <div className="w-[300px] flex flex-col items-center space-y-5 justify-between">
-          <img src="/app logo.png" className="h-20 object-contain  font-bold" />
+          <img src="/app logo.png" className="h-20 object-contain font-bold" />
           <h2 className="text-xl font-semibold text-center">Let’s get you in</h2>
 
           <div className="w-full space-y-2">

@@ -49,10 +49,18 @@ export default function Artistssongs() {
     localStorage.setItem("playlists", JSON.stringify(updated));
   };
 
+  // ✅ Add song (no duplicate inside same playlist)
   const addSongToPlaylist = (playlistName, song) => {
+
+    // const current = playlists.find(playlist => playlist?.name === playlistName)?.songs?.find(s => s?.audio === song?.audio);
+    // console.log(current);
+
+
     const updated = playlists.map((pl) => {
       if (pl.name === playlistName) {
-        if (pl.songs.some((s) => s.id === song.id)) {
+        const alreadyExists = pl.songs.find((s) => s.audio === song.audio);
+
+        if (alreadyExists) {
           setMessage(`⚠️ "${song.title}" already in "${playlistName}"`);
           return pl;
         }
@@ -102,31 +110,51 @@ export default function Artistssongs() {
     return `${minutes}:${seconds}`;
   };
 
-  // ✅ Handle audio progress
-useEffect(() => {
-  const audio = audioRef.current;
-  if (!audio) return;
+  // ✅ Filter songs
+  const filteredSongs = songs.filter(
+    (s) =>
+      s.title.toLowerCase().includes(query.toLowerCase()) ||
+      s.album.toLowerCase().includes(query.toLowerCase()) ||
+      String(s.year).includes(query)
+  );
 
-  const updateProgress = () => {
-    if (audio.duration) {
-      setProgress((audio.currentTime / audio.duration) * 100);
-      setCurrentTime(audio.currentTime);
-    }
-  };
+  //  Handle audio progress + auto play next
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
 
-  const setAudioData = () => setDuration(audio.duration);
+    const updateProgress = () => {
+      if (audio.duration) {
+        setProgress((audio.currentTime / audio.duration) * 100);
+        setCurrentTime(audio.currentTime);
+      }
+    };
 
-  audio.addEventListener("timeupdate", updateProgress);
-  audio.addEventListener("loadedmetadata", setAudioData);
+    const setAudioData = () => setDuration(audio.duration);
 
-  // Play automatically if player is open
-  if (isPlayerOpen) audio.play().catch(() => {});
+    const handleSongEnd = () => {
+      playNext();
+    };
 
-  return () => {
-    audio.removeEventListener("timeupdate", updateProgress);
-    audio.removeEventListener("loadedmetadata", setAudioData);
-  };
-}, [currentSongIndex, isPlayerOpen]);
+    audio.addEventListener("timeupdate", updateProgress);
+    audio.addEventListener("loadedmetadata", setAudioData);
+    audio.addEventListener("ended", handleSongEnd);
+
+    if (isPlayerOpen) audio.play().catch(() => { });
+
+    return () => {
+      audio.removeEventListener("timeupdate", updateProgress);
+      audio.removeEventListener("loadedmetadata", setAudioData);
+      audio.removeEventListener("ended", handleSongEnd);
+    };
+  }, [currentSongIndex, isPlayerOpen]);
+
+  //  Auto-hide toast after 3s
+  useEffect(() => {
+    if (!message) return;
+    const timer = setTimeout(() => setMessage(""), 3000);
+    return () => clearTimeout(timer);
+  }, [message]);
 
   const playPause = () => {
     if (isPlaying) audioRef.current.pause();
@@ -158,29 +186,21 @@ useEffect(() => {
     setCurrentSongIndex(0);
     setProgress(0);
     setCurrentTime(0);
-    setIsPlayerOpen(false); // ✅ Hide player
+    setIsPlayerOpen(false);
   };
-
-  // ✅ Filter songs
-  const filteredSongs = songs.filter(
-    (s) =>
-      s.title.toLowerCase().includes(query.toLowerCase()) ||
-      s.album.toLowerCase().includes(query.toLowerCase()) ||
-      String(s.year).includes(query)
-  );
 
   if (!artist) return <div className="text-white p-6">❌ Artist not found</div>;
 
   return (
-      <div className={`p-6 min-h-screen text-white bg-gradient-to-br ${artist.bgGradient}`}>
-
-      {/* ✅ Feedback Toast */}
-     {message && (
-  <div className="fixed top-4 right-4 bg-black/80 text-white px-4 py-2 rounded-lg shadow-lg z-50">
-    {message}
-  </div>
-)}
-
+    <div
+      className={`p-6 min-h-screen text-white bg-gradient-to-br ${artist.bgGradient}`}
+    >
+      {/*  Feedback Toast */}
+      {message && (
+        <div className="fixed top-4 right-4 bg-black/80 text-white px-4 py-2 rounded-lg shadow-lg z-50">
+          {message}
+        </div>
+      )}
 
       {/* ✅ Artist Info */}
       <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
@@ -189,6 +209,7 @@ useEffect(() => {
           alt={artist.name}
           className="w-40 h-40 rounded-full shadow-lg border-4 border-white object-cover"
         />
+        
         <div>
           <h1 className="text-4xl font-bold">{artist.name}</h1>
           <p className="mt-2 text-gray-200 max-w-lg">{artist.bio}</p>
@@ -211,18 +232,17 @@ useEffect(() => {
           {filteredSongs.map((song, index) => (
             <li
               key={song.id}
-              className={`p-3 rounded-lg transition ${
-                currentSongIndex === index && isPlayerOpen
-                  ? "bg-black text-white"
-                  : "bg-white/5 hover:bg-white/20"
-              }`}
+              className={`p-3 rounded-lg transition ${currentSongIndex === index && isPlayerOpen
+                ? "bg-black text-white"
+                : "bg-white/5 hover:bg-white/20"
+                }`}
             >
               <div className="flex justify-between items-center">
                 <div
                   className="flex-1 cursor-pointer"
                   onClick={() => {
                     setCurrentSongIndex(index);
-                    setIsPlayerOpen(true); // ✅ open player only when clicked
+                    setIsPlayerOpen(true);
                     setTimeout(() => {
                       audioRef.current.play();
                       setIsPlaying(true);
@@ -291,7 +311,9 @@ useEffect(() => {
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-gray-400 mb-4">No songs in this playlist</p>
+                  <p className="text-gray-400 mb-4">
+                    No songs in this playlist
+                  </p>
                 )}
                 <div className="flex justify-between">
                   <button
@@ -318,7 +340,7 @@ useEffect(() => {
                         key={idx}
                         className="flex justify-between items-center bg-white/5 rounded-lg px-3 py-2"
                       >
-                        <span>{pl.name}</span>
+                        <span>{idx + 1}. {pl.name}</span>
                         <div className="flex gap-2">
                           <button
                             onClick={() => {
@@ -374,7 +396,7 @@ useEffect(() => {
         </div>
       )}
 
-      {/* ✅ Player (only if open) */}
+      {/* ✅ Player */}
       {isPlayerOpen && filteredSongs.length > 0 && (
         <div className="fixed bottom-0 left-0 right-0 bg-black/90 p-4 flex flex-col">
           <button

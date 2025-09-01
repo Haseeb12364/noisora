@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from "react";
+import { useAuth } from "../context/AuthContext";
 import { FaUser, FaMusic, FaChartPie, FaCog } from "react-icons/fa";
 
 export default function AdminDashboard() {
   const [users, setUsers] = useState([]);
+  const { user } = useAuth();
 
-//   useEffect(() => {
-//     // fetch all users from PHP backend
-//     fetch("http://localhost/noisora/admin.php")
-//       .then((res) => res.json())
-//       .then((data) => setUsers(data.users || []));
-//   }, []);
+  // Load users from localStorage
+  useEffect(() => {
+    const savedUser = localStorage.getItem("user"); 
+    if (savedUser) {
+      const parsedUser = JSON.parse(savedUser);
+      setUsers([{ id: 1, email: parsedUser.email, role: parsedUser.role }]);
+    }
+    
+  }, []);
 
   return (
     <div className="flex h-screen bg-gradient-to-br from-white to-gray-700 ">
       {/* Sidebar */}
       <aside className="w-64 bg-gradient-to-br from-gray-500 to-black shadow-lg sticky ">
-        <div className="p-6 font-bold text-2xl border-b  justify-between items-center text-white  "> <img className="h-10 mr-2 mb-2" src="/app logo.png" alt="" />  </div>
+        <div className="p-6 font-bold text-2xl border-b text-white">
+          <img className="h-10 mr-2 mb-2" src="/app logo.png" alt="" />
+        </div>
         <nav className="p-4 space-y-4">
           <a className="flex items-center gap-2 text-white hover:text-indigo-600" href="#">
             <FaUser /> Users
@@ -26,7 +33,7 @@ export default function AdminDashboard() {
           <a className="flex items-center gap-2 text-white hover:text-indigo-600" href="#">
             <FaChartPie /> Analytics
           </a>
-          <a className="flex items-center gap-2 " href="#">
+          <a className="flex items-center gap-2" href="#">
             <FaCog /> Settings
           </a>
         </nav>
@@ -34,11 +41,10 @@ export default function AdminDashboard() {
 
       {/* Main Content */}
       <main className="flex-1 p-6 overflow-y-auto">
-        {/* Top Navbar */}
-        <header className="flex justify-between items-center mb-6 w-full mb-4">
+        <header className="flex justify-between items-center mb-6 w-full">
           <h1 className="text-2xl font-bold">Dashboard</h1>
           <div className="flex items-center gap-4">
-            <span className="font-medium">Admin</span>
+            {/* <span className="font-medium">{ || "Guest"}</span> */}
             <img
               src="/nain.jpeg"
               alt="profile"
@@ -46,22 +52,6 @@ export default function AdminDashboard() {
             />
           </div>
         </header>
-
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h2 className="text-sm text-gray-500">Total Users</h2>
-            <p className="text-2xl font-bold">{users.length}</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h2 className="text-sm text-gray-500">Active Users</h2>
-            <p className="text-2xl font-bold">5</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h2 className="text-sm text-gray-500">Total Songs</h2>
-            <p className="text-2xl font-bold">50</p>
-          </div>
-        </div>
 
         {/* Users Table */}
         <div className="bg-white p-6 rounded-xl shadow">
@@ -72,7 +62,6 @@ export default function AdminDashboard() {
                 <th className="p-3">ID</th>
                 <th className="p-3">Email</th>
                 <th className="p-3">Role</th>
-                <th className="p-3">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -81,14 +70,6 @@ export default function AdminDashboard() {
                   <td className="p-3">{u.id}</td>
                   <td className="p-3">{u.email}</td>
                   <td className="p-3 capitalize">{u.role}</td>
-                  <td className="p-3">
-                    <button className="px-3 py-1 text-sm bg-red-500 text-white rounded-md hover:bg-red-600">
-                      Delete
-                    </button>
-                    <button className="ml-2 px-3 py-1 text-sm bg-indigo-500 text-white rounded-md hover:bg-indigo-600">
-                      Promote
-                    </button>
-                  </td>
                 </tr>
               ))}
             </tbody>

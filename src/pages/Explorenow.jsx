@@ -8,11 +8,11 @@ const topGenres = [
     { name: "Slowed Reverbs", img: "slow.jpg" },
 ];
 
-const artists = [
-  { name: "Atif Aslam", img: "Atif.jpg" },
-  { name: "Aujla", img: "Aujla.jfif" },
-  { name: "Neha kakar", img: "neha.jpg" },
-{ name: "B praak", img: "B praak.avif" }
+const artist = [
+  { name: "Atif Aslam", img: "Atif.jpg", slug: "atif-aslam",},
+  { name: "Aujla", img: "Aujla.jfif",   slug: "karan-aujla" },
+  { name: "Neha kakar", img: "neha.jpg", slug: "neha-kakr" },
+{ name: "B praak", img: "B praak.avif", slug: "b-praak" }
 
 ];
 const songs = [
@@ -90,9 +90,12 @@ export default function Explore() {
       <h1 className="text-3xl font-bold mb-6 text-center">Top Artists</h1>
 
       <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        {artists.map((artist, index) => (
+        {artist.map((artist) => (
+                        <Link  key={artist.slug}
+                         to={`/artist/${artist.slug}`} >
+
           <div
-            key={index}
+           
             className="bg-gray-900 hover:bg-gray-800 rounded-full overflow-hidden cursor-pointer shadow-xl  transition-transform hover:scale-105"
           >
             <img
@@ -104,6 +107,8 @@ export default function Explore() {
               <h2 className="text-lg font-semibold">{artist.name}</h2>
             </div>
           </div>
+                        </Link>
+
         ))}
           <button
             className="  bg-white   text-black w-28 h-16 mt-16 ml-8 font-semibold px-6 py-3 rounded-full z-50 transition duration-300 shadow-lg hover:scale-105"

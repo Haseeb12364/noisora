@@ -38,7 +38,7 @@ export const artists = [
         img: "/arijit.webp",
                 image: "/arijit.webp",
 
-        bio: "",
+        bio: "indian singer",
         songs: [
             // { id: 1, title: "Akhiyan Milawanga", album: "Single", year: 2020, audio: "/Artists/Arijit-singh/Akhyan milawanga.mp3" },
             { id: 1, title: "Akhiyan Milawanga", album: "Single", year: 2020, audio: "https:..." },

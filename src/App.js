@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-
+import Parent from "./pages/parent";
 import Navbar from "./components/Navbar";
 import Herosection from "./components/herosection";
 import Footer from "./components/footer";
@@ -44,6 +44,8 @@ function App() {
           <Route path="/Trendingsongs" element={<Trendingsongs />} />
           <Route path="/artist/:slug/songs" element={<ArtistSongs />} />
           <Route path="/playlists" element={<Playlists />} />
+          <Route path="/parent" element={<Parent />} />
+
 
           {/* Auth & Dashboards */}
           <Route path="/login" element={<Login />} />
