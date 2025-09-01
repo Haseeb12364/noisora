@@ -3,23 +3,13 @@ import { FaFacebookF, FaApple } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
 
 export default function Login() {
   const { login } = useAuth();
 
   const handleGoogleSuccess = (credentialResponse) => {
     if (credentialResponse.credential) {
-      const decoded = jwtDecode(credentialResponse.credential);
-
-      // Save email in localStorage
-      const googleUser = {
-        email: decoded.email,
-        role: "admin", // or "user", your choice
-      };
-      localStorage.setItem("user", JSON.stringify(googleUser));
-
-      // Call context login (so state updates)
+      // Just call login from AuthContext
       login(credentialResponse.credential);
     }
   };
