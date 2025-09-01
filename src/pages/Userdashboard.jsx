@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaSearch, FaBars, FaTimes, FaPlay, FaPause } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Userdashboard() {
+  const { user } = useAuth(); // get current logged-in user
   const [savedPlaylists, setSavedPlaylists] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
   const [selectedPlaylist, setSelectedPlaylist] = useState(null);
@@ -12,10 +14,12 @@ export default function Userdashboard() {
 
   const menuItems = ["Overview", "Albums", "Folders", "Playlists", "Settings"];
 
+  // Load playlists for the current user
   useEffect(() => {
-    const stored = localStorage.getItem("playlists");
-    if (stored) setSavedPlaylists(JSON.parse(stored));
-  }, []);
+    const stored = JSON.parse(localStorage.getItem("playlists")) || [];
+    const userPlaylists = stored.filter(pl => pl.userEmail === user?.email);
+    setSavedPlaylists(userPlaylists);
+  }, [user]);
 
   const playSong = (song) => {
     if (currentSong?.id === song.id) {
@@ -34,7 +38,7 @@ export default function Userdashboard() {
 
   const handleNextSong = () => {
     if (!selectedPlaylist || !currentSong) return;
-    const index = selectedPlaylist.songs.findIndex((s) => s.id === currentSong.id);
+    const index = selectedPlaylist.songs.findIndex(s => s.id === currentSong.id);
     const nextIndex = (index + 1) % selectedPlaylist.songs.length;
     const nextSong = selectedPlaylist.songs[nextIndex];
     setCurrentSong(nextSong);
@@ -44,7 +48,7 @@ export default function Userdashboard() {
 
   const handlePrevSong = () => {
     if (!selectedPlaylist || !currentSong) return;
-    const index = selectedPlaylist.songs.findIndex((s) => s.id === currentSong.id);
+    const index = selectedPlaylist.songs.findIndex(s => s.id === currentSong.id);
     const prevIndex = (index - 1 + selectedPlaylist.songs.length) % selectedPlaylist.songs.length;
     const prevSong = selectedPlaylist.songs[prevIndex];
     setCurrentSong(prevSong);
@@ -53,7 +57,7 @@ export default function Userdashboard() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-gray-800 to-black text-white min-h-screen">
+    <div className="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen">
       {/* Navbar */}
       <header className="flex items-center justify-between px-4 py-3 border-b border-gray-800">
         <div className="flex items-center space-x-2">
@@ -74,9 +78,13 @@ export default function Userdashboard() {
 
       {/* User Info */}
       <section className="px-6 py-6 flex flex-col items-center text-center">
-        <img src="nain.jpeg" alt="User Avatar" className="h-28 w-28 rounded-full" />
-        <h2 className="text-3xl font-bold mt-4">Haseeb Ahmad</h2>
-        <p className="text-gray-400">Premium Member</p>
+        <img
+          src={user?.picture || "nain.jpeg"}
+          alt="User Avatar"
+          className="h-28 w-28 rounded-full"
+        />
+        <h2 className="text-3xl font-bold mt-4">{user?.name || "Guest"}</h2>
+        <p className="text-gray-400">{user?.role === "user" ? "Premium Member" : "Admin"}</p>
       </section>
 
       {/* Desktop Menu */}
@@ -144,20 +152,11 @@ export default function Userdashboard() {
                   onClick={() => setSelectedPlaylist(pl)}
                 >
                   {coverImage ? (
-                    <img
-                      src={coverImage}
-                      alt={pl.name}
-                      className="rounded-md mb-2"
-                    />
+                    <img src={coverImage} alt={pl.name} className="rounded-md mb-2" />
                   ) : (
                     <div className="grid grid-cols-2 gap-1 mb-2">
                       {pl.songs.slice(0, 4).map((song, i) => (
-                        <img
-                          key={i}
-                          src={song.image}
-                          alt={song.artist}
-                          className="rounded-md"
-                        />
+                        <img key={i} src={song.image} alt={song.artist} className="rounded-md" />
                       ))}
                     </div>
                   )}
@@ -189,11 +188,7 @@ export default function Userdashboard() {
                 className="flex items-center justify-between bg-gray-800 rounded-lg p-3 hover:bg-gray-700"
               >
                 <div className="flex items-center space-x-3">
-                  <img
-                    src={song.image}
-                    alt={song.title}
-                    className="h-12 w-12 rounded-md"
-                  />
+                  <img src={song.image} alt={song.title} className="h-12 w-12 rounded-md" />
                   <div>
                     <p className="font-semibold">{song.title}</p>
                     <p className="text-gray-400 text-sm">{song.artist}</p>

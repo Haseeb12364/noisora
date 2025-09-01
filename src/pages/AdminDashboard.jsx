@@ -18,7 +18,7 @@ export default function AdminDashboard() {
             <FaUser /> Users
           </a>
           <a className="flex items-center gap-2 text-white hover:text-indigo-600" href="#">
-            <FaMusic /> Songs
+            <FaMusic className="text-yellow-500 h-8"  /> Songs
           </a>
           <a className="flex items-center gap-2 text-white hover:text-indigo-600" href="#">
             <FaChartPie /> Analytics
