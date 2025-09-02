@@ -68,14 +68,14 @@ function Navbar() {
             {darkMode ? "🌞" : "🌙"}
           </button>
 
-          {/* Auth Buttons */}
+          {/* Auth Buttons (Desktop only) */}
           {user?.email ? (
-            <button className="text-sm glow-btn2" onClick={logout}>
+            <button className="text-sm glow-btn2 hidden lg:block" onClick={logout}>
               Logout
             </button>
           ) : (
             <button
-              className="text-sm glow-btn"
+              className="text-sm glow-btn hidden lg:block"
               onClick={() => navigate("/login")}
             >
               Login
@@ -88,9 +88,9 @@ function Navbar() {
               className="flex flex-col space-y-1 lg:hidden"
               onClick={() => setMenuOpen(!menuOpen)}
             >
-              <span className="w-6 h-0.5 bg-white dark:bg-black block"></span>
-              <span className="w-4 h-0.5 bg-white dark:bg-black block"></span>
-              <span className="w-3 h-0.5 bg-white dark:bg-black block"></span>
+              <span className="w-6 h-0.5 bg-white block"></span>
+              <span className="w-4 h-0.5 bg-white block"></span>
+              <span className="w-3 h-0.5 bg-white block"></span>
             </button>
           )}
         </div>
@@ -144,6 +144,21 @@ function Navbar() {
               <Link to="/user" onClick={() => setMenuOpen(false)}>
                 My Account
               </Link>
+            </li>
+          )}
+
+          {/* ✅ Only show Logout in mobile, hide Login */}
+          {user?.email && (
+            <li>
+              <button
+                className="w-full text-left text-red-400 hover:text-red-300"
+                onClick={() => {
+                  logout();
+                  setMenuOpen(false);
+                }}
+              >
+                🚪 Logout
+              </button>
             </li>
           )}
         </ul>

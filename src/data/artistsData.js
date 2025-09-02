@@ -161,7 +161,7 @@ export const artists = [
                 image: "/momina.jpg",
 
         bio: "Pakistani playback singer and actor.",
-                               bgGradient: "from-pink-900 via-indigo-400 to-red-800",
+                                bgGradient: "from-pink-900 via-indigo-400 to-red-800",
 
         songs: [
 
